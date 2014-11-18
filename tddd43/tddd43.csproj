@@ -53,12 +53,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ColorPalette.xaml.cs">
+      <DependentUpon>ColorPalette.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RightBlock.xaml.cs">
       <DependentUpon>RightBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Row.cs" />
+    <Compile Include="RowScore.cs" />
     <Compile Include="TopMidBlock.xaml.cs">
       <DependentUpon>TopMidBlock.xaml</DependentUpon>
     </Compile>
+    <Page Include="ColorPalette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LeftBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -13,16 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace tddd43
-{
+namespace tddd43 {
     /// <summary>
-    /// Interaction logic for MidBlock.xaml
+    /// Interaction logic for ColorPalette.xaml
     /// </summary>
-    public partial class MidBlock : UserControl
-    {
-        public MidBlock()
-        {
-            this.DataContext = new Row();
+    public partial class ColorPalette : UserControl {
+        public ColorPalette() {
             InitializeComponent();
         }
     }

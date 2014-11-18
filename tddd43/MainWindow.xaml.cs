@@ -24,25 +24,21 @@ namespace tddd43
         {
             InitializeComponent();
 
-            for (int x = 2; x < 6; x++)
-            {
-                TopMidBlock topMidBlock = new TopMidBlock();
-                Grid.SetRow(topMidBlock, 0);
-                Grid.SetColumn(topMidBlock, x);
-                topMidBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
-                MasterMind.Children.Add(topMidBlock);
-            }
+            
+            TopMidBlock topMidBlock = new TopMidBlock();
+            Grid.SetRow(topMidBlock, 0);
+            Grid.SetColumn(topMidBlock, 2);
+            topMidBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
+            MasterMind.Children.Add(topMidBlock);
 
-            for (int x = 2; x < 6; x++)
+
+            for (int y = 1; y < 11; y++)
             {
-                for (int y = 1; y < 11; y++)
-                {
-                    MidBlock midBlock = new MidBlock();
-                    Grid.SetRow(midBlock, y);
-                    Grid.SetColumn(midBlock, x);
-                    midBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
-                    MasterMind.Children.Add(midBlock);
-                }
+                MidBlock midBlock = new MidBlock();
+                Grid.SetRow(midBlock, y);
+                Grid.SetColumn(midBlock, 2);
+                midBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
+                MasterMind.Children.Add(midBlock);
             }
 
             for (int y = 1; y < 11; y++)
@@ -67,9 +63,17 @@ namespace tddd43
 
                 RightBlock rightBlock = new RightBlock();
                 Grid.SetRow(rightBlock, y);
-                Grid.SetColumn(rightBlock, 6);
+                Grid.SetColumn(rightBlock, 3);
                 rightBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4, Left = 4 };
                 MasterMind.Children.Add(rightBlock);
+            }
+
+            SolidColorBrush[] colors = new SolidColorBrush[] { Brushes.Blue, Brushes.Red, Brushes.Green, Brushes.Yellow,
+                                                                Brushes.Purple, Brushes.Brown, Brushes.Aqua, Brushes.LightBlue };
+            for (int x = 0; x < 10; x++) {
+                for (int y = 0; y < 10; y++) {
+
+                }
             }
         }
     }

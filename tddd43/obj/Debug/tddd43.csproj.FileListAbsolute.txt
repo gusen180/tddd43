@@ -19,3 +19,26 @@ c:\users\gurra\documents\visual studio 2013\Projects\tddd43\tddd43\obj\Debug\Lef
 c:\users\gurra\documents\visual studio 2013\Projects\tddd43\tddd43\obj\Debug\RightBlock.g.cs
 c:\users\gurra\documents\visual studio 2013\Projects\tddd43\tddd43\obj\Debug\TopMidBlock.baml
 c:\users\gurra\documents\visual studio 2013\Projects\tddd43\tddd43\obj\Debug\TopMidBlock.g.cs
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\bin\Debug\tddd43.exe.config
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43.exe
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43.pdb
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\bin\Debug\tddd43.exe
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\bin\Debug\tddd43.pdb
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43.csprojResolveAssemblyReference.cache
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\LeftBlock.baml
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\MainWindow.baml
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\MidBlock.baml
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\RightBlock.baml
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\TopMidBlock.baml
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\LeftBlock.g.cs
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\MainWindow.g.cs
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\MidBlock.g.cs
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\RightBlock.g.cs
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\TopMidBlock.g.cs
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\App.g.cs
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43_MarkupCompile.cache
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43.g.resources
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43.Properties.Resources.resources
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43.csproj.GenerateResource.Cache
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\ColorPalette.baml
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\ColorPalette.g.cs
