@@ -53,26 +53,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ColorPalette.xaml.cs">
+    <Compile Include="Helpers\MyCommandBase.cs" />
+    <Compile Include="ViewModel\Game.cs" />
+    <Compile Include="View\ColorPalette.xaml.cs">
       <DependentUpon>ColorPalette.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RightBlock.xaml.cs">
+    <Compile Include="Model\ColorPaletteModel.cs" />
+    <Compile Include="View\RightBlock.xaml.cs">
       <DependentUpon>RightBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Row.cs" />
-    <Compile Include="RowScore.cs" />
-    <Compile Include="TopMidBlock.xaml.cs">
+    <Compile Include="Model\RowModel.cs" />
+    <Compile Include="Model\RowScoreModel.cs" />
+    <Compile Include="View\TopMidBlock.xaml.cs">
       <DependentUpon>TopMidBlock.xaml</DependentUpon>
     </Compile>
-    <Page Include="ColorPalette.xaml">
+    <Page Include="View\ColorPalette.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LeftBlock.xaml">
+    <Page Include="View\LeftBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -80,28 +83,28 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LeftBlock.xaml.cs">
+    <Compile Include="View\LeftBlock.xaml.cs">
       <DependentUpon>LeftBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MidBlock.xaml">
+    <Page Include="View\MidBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RightBlock.xaml">
+    <Page Include="View\RightBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TopMidBlock.xaml">
+    <Page Include="View\TopMidBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MidBlock.xaml.cs">
+    <Compile Include="View\MidBlock.xaml.cs">
       <DependentUpon>MidBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -130,6 +133,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

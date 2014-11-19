@@ -29,7 +29,7 @@ namespace tddd43
             Grid.SetRow(topMidBlock, 0);
             Grid.SetColumn(topMidBlock, 2);
             topMidBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
-            MasterMind.Children.Add(topMidBlock);
+            MasterMindLeft.Children.Add(topMidBlock);
 
 
             for (int y = 1; y < 11; y++)
@@ -38,7 +38,7 @@ namespace tddd43
                 Grid.SetRow(midBlock, y);
                 Grid.SetColumn(midBlock, 2);
                 midBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
-                MasterMind.Children.Add(midBlock);
+                MasterMindLeft.Children.Add(midBlock);
             }
 
             for (int y = 1; y < 11; y++)
@@ -47,7 +47,7 @@ namespace tddd43
                 Grid.SetRow(leftBlock, y);
                 Grid.SetColumn(leftBlock, 1);
                 leftBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4, Right = 4 };
-                MasterMind.Children.Add(leftBlock);
+                MasterMindLeft.Children.Add(leftBlock);
 
                 TextBlock textblock = new TextBlock
                 {
@@ -59,22 +59,19 @@ namespace tddd43
                 };
                 Grid.SetRow(textblock, y);
                 Grid.SetColumn(textblock, 1);
-                MasterMind.Children.Add(textblock);
+                MasterMindLeft.Children.Add(textblock);
 
                 RightBlock rightBlock = new RightBlock();
                 Grid.SetRow(rightBlock, y);
                 Grid.SetColumn(rightBlock, 3);
                 rightBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4, Left = 4 };
-                MasterMind.Children.Add(rightBlock);
+                MasterMindLeft.Children.Add(rightBlock);
             }
 
-            SolidColorBrush[] colors = new SolidColorBrush[] { Brushes.Blue, Brushes.Red, Brushes.Green, Brushes.Yellow,
-                                                                Brushes.Purple, Brushes.Brown, Brushes.Aqua, Brushes.LightBlue };
-            for (int x = 0; x < 10; x++) {
-                for (int y = 0; y < 10; y++) {
-
-                }
-            }
+            ColorPalette colorPalette = new ColorPalette();
+            Grid.SetRow(colorPalette, 1);
+            Grid.SetColumn(colorPalette, 0);
+            MasterMindRight.Children.Add(colorPalette);
         }
     }
 }

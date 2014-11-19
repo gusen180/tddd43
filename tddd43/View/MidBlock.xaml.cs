@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using tddd43.ViewModel;
 
 namespace tddd43
 {
@@ -22,8 +23,13 @@ namespace tddd43
     {
         public MidBlock()
         {
-            this.DataContext = new Row();
+            this.DataContext = new RowModel();
             InitializeComponent();
+        }
+
+        private void Ellipse_Drop(object sender, DragEventArgs e)
+        {
+            Game.Drop(sender, e, this);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace tddd43 {
-    class RowScore {
+    class RowScoreModel {
         private SolidColorBrush spot0;
 
         public SolidColorBrush Spot0 {
@@ -32,7 +32,7 @@ namespace tddd43 {
             set { spot3 = value; }
         }
 
-        public RowScore() {
+        public RowScoreModel() {
             spot0 = Brushes.Black;
             spot1 = Brushes.Black;
             spot2 = Brushes.Black;
