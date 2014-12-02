@@ -45,7 +45,25 @@ namespace tddd43 {
         }
 
         public void ChangeColor(int index, Brush color) {
-
+            rowScoreArray[index] = color;
+            switch (index) {
+                case 0:
+                    Spot0 = color;
+                    break;
+                case 1:
+                    Spot1 = color;
+                    break;
+                case 2:
+                    Spot2 = color;
+                    break;
+                case 3:
+                    Spot3 = color;
+                    break;
+                default:
+                    break;
+            }
+            Console.WriteLine(index);
+            Console.WriteLine(color);
         }
 
         protected void OnPropertyChanged(string name) {

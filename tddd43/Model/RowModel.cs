@@ -11,35 +11,38 @@ namespace tddd43 {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Brush[] rowArray = new Brush[4];
+        public string[] rowArray = new string[4];
 
-        public Brush spot0;
+        //public Brush spot0;
 
-        public Brush Spot0
+        public string Spot0
         {
-            get { return spot0; }
-            set { spot0 = value; rowArray[0] = value; OnPropertyChanged("spot0"); }
+            get { return rowArray[0]; }
+            set { rowArray[0] = value; OnPropertyChanged("spot0"); }
         }
-        private Brush spot1;
+        
+        //private Brush spot1;
 
-        public Brush Spot1
+        public string Spot1
         {
-            get { return spot1; }
-            set { spot1 = value; rowArray[1] = value; OnPropertyChanged("spot1"); }
+            get { return rowArray[1]; }
+            set { rowArray[1] = value; OnPropertyChanged("spot1"); }
         }
-        private Brush spot2;
 
-        public Brush Spot2
+        //private Brush spot2;
+
+        public string Spot2
         {
-            get { return spot2; }
-            set { spot2 = value; rowArray[2] = value; OnPropertyChanged("spot2"); }
+            get { return rowArray[2]; }
+            set { rowArray[2] = value; OnPropertyChanged("spot2"); }
         }
-        private Brush spot3;
 
-        public Brush Spot3
+        //private Brush spot3;
+
+        public string Spot3
         {
-            get { return spot3; }
-            set { spot3 = value; rowArray[3] = value; OnPropertyChanged("spot3"); }
+            get { return rowArray[3]; }
+            set { rowArray[3] = value; OnPropertyChanged("spot3"); }
         }
 
         private Brush backgroundColor;
@@ -58,14 +61,10 @@ namespace tddd43 {
 
 
         public RowModel() {
-            spot0 = Brushes.Gray;
-            spot1 = Brushes.Gray;
-            spot2 = Brushes.Gray;
-            spot3 = Brushes.Gray;
-            rowArray[0] = spot0;
-            rowArray[1] = spot1;
-            rowArray[2] = spot2;
-            rowArray[3] = spot3;
+            Spot0 = "Gray";
+            Spot1 = "Gray";
+            Spot2 = "Gray";
+            Spot3 = "Gray";
             backgroundColor = Brushes.DarkGray;
             allowDrop = "False";
         }

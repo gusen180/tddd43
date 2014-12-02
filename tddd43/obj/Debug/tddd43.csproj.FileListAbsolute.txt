@@ -67,3 +67,4 @@ C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\View\TopMidBlock.g.cs
 C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43_MarkupCompile.lref
 C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\View\ColorPalette.baml
 C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\App.baml
