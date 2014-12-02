@@ -40,7 +40,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="2">Accept</Button>
+            <Button Grid.Column="0" Grid.Row="2" Click="ClickEvent">Accept</Button>
         </Grid>
     </Grid>
 </Window>

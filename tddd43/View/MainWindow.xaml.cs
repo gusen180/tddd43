@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using tddd43.ViewModel;
 
 namespace tddd43
 {
@@ -22,19 +23,24 @@ namespace tddd43
     {
         public MainWindow()
         {
+            
             InitializeComponent();
 
-            
+            RowModel[] rowModelArray = new RowModel[10];
+            RowScoreModel[] rowScoreModelArray = new RowScoreModel[10];
+
             TopMidBlock topMidBlock = new TopMidBlock();
+            topMidBlock.DataContext = new SolutionModel();
             Grid.SetRow(topMidBlock, 0);
             Grid.SetColumn(topMidBlock, 2);
             topMidBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
             MasterMindLeft.Children.Add(topMidBlock);
 
 
-            for (int y = 1; y < 11; y++)
-            {
+            for (int y = 1; y < 11; y++) {
                 MidBlock midBlock = new MidBlock();
+                rowModelArray[((11 - y) % 11) - 1] = new RowModel();
+                midBlock.DataContext = rowModelArray[((11 - y) % 11) - 1];
                 Grid.SetRow(midBlock, y);
                 Grid.SetColumn(midBlock, 2);
                 midBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
@@ -62,6 +68,8 @@ namespace tddd43
                 MasterMindLeft.Children.Add(textblock);
 
                 RightBlock rightBlock = new RightBlock();
+                rowScoreModelArray[((11 - y) % 11) - 1] = new RowScoreModel();
+                rightBlock.DataContext = rowScoreModelArray[((11 - y) % 11) - 1];
                 Grid.SetRow(rightBlock, y);
                 Grid.SetColumn(rightBlock, 3);
                 rightBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4, Left = 4 };
@@ -69,9 +77,16 @@ namespace tddd43
             }
 
             ColorPalette colorPalette = new ColorPalette();
+            colorPalette.DataContext = new ColorPaletteModel();
             Grid.SetRow(colorPalette, 1);
             Grid.SetColumn(colorPalette, 0);
             MasterMindRight.Children.Add(colorPalette);
+
+            new Game(rowModelArray, rowScoreModelArray, (SolutionModel)topMidBlock.DataContext);
+        }
+
+        private void ClickEvent(object sender, RoutedEventArgs e) {
+            Game.Accept(sender, e);
         }
     }
 }

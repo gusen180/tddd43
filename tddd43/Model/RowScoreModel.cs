@@ -1,42 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace tddd43 {
-    class RowScoreModel {
-        private SolidColorBrush spot0;
+    class RowScoreModel : INotifyPropertyChanged {
 
-        public SolidColorBrush Spot0 {
-            get { return spot0; }
-            set { spot0 = value; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //private SolidColorBrush spot0;
+        public Brush[] rowScoreArray= new Brush[4];
+
+        public Brush Spot0 {
+            get { return rowScoreArray[0]; }
+            set { rowScoreArray[0] = value; OnPropertyChanged("spot0"); }
         }
-        private SolidColorBrush spot1;
+        //private Brush spot1;
 
-        public SolidColorBrush Spot1 {
-            get { return spot1; }
-            set { spot1 = value; }
+        public Brush Spot1 {
+            get { return rowScoreArray[1]; }
+            set { rowScoreArray[1] = value; OnPropertyChanged("spot1"); }
         }
-        private SolidColorBrush spot2;
+        //private Brush spot2;
 
-        public SolidColorBrush Spot2 {
-            get { return spot2; }
-            set { spot2 = value; }
+        public Brush Spot2 {
+            get { return rowScoreArray[2]; }
+            set { rowScoreArray[2] = value; OnPropertyChanged("spot2"); }
         }
-        private SolidColorBrush spot3;
+        //private Brush spot3;
 
-        public SolidColorBrush Spot3 {
-            get { return spot3; }
-            set { spot3 = value; }
+        public Brush Spot3 {
+            get { return rowScoreArray[3]; }
+            set { rowScoreArray[3] = value; OnPropertyChanged("spot3"); }
         }
 
         public RowScoreModel() {
-            spot0 = Brushes.Black;
-            spot1 = Brushes.Black;
-            spot2 = Brushes.Black;
-            spot3 = Brushes.Black;
+            rowScoreArray[0] = Brushes.Black;
+            rowScoreArray[1] = Brushes.Black;
+            rowScoreArray[2] = Brushes.Black;
+            rowScoreArray[3] = Brushes.Black;
+        }
+
+        public void ChangeColor(int index, Brush color) {
+
+        }
+
+        protected void OnPropertyChanged(string name) {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

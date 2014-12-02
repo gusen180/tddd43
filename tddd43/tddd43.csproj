@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\MyCommandBase.cs" />
+    <Compile Include="Model\SolutionModel.cs" />
     <Compile Include="ViewModel\Game.cs" />
     <Compile Include="View\ColorPalette.xaml.cs">
       <DependentUpon>ColorPalette.xaml</DependentUpon>

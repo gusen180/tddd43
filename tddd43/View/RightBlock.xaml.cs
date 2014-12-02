@@ -22,7 +22,6 @@ namespace tddd43
     {
         public RightBlock()
         {
-            this.DataContext = new RowScoreModel();
             InitializeComponent();
         }
     }

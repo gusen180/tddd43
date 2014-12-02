@@ -23,13 +23,12 @@ namespace tddd43
     {
         public MidBlock()
         {
-            this.DataContext = new RowModel();
             InitializeComponent();
         }
 
         private void Ellipse_Drop(object sender, DragEventArgs e)
         {
-            Game.Drop(sender, e, this);
+            Game.Drop(sender, e);
         }
     }
 }

@@ -22,7 +22,6 @@ namespace tddd43 {
 
 
         public ColorPalette() {
-            this.DataContext = new ColorPaletteModel();
             InitializeComponent();
         }
 
