@@ -17,17 +17,17 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="0" Width="38" Height="38" Fill="{Binding Path=Blue}" Stroke="LightGray">
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="0" Width="38" Height="38" Fill="{Binding Path=Blue, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray">
             <!--<Ellipse.InputBindings>
                 <MouseBinding Gesture="LeftClick" Command="helpers:MyCommandBase.Drag"/>
             </Ellipse.InputBindings>-->
         </Ellipse>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Red}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Green}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="3" Width="38" Height="38" Fill="{Binding Path=Yellow}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="0" Width="38" Height="38" Fill="{Binding Path=Purple}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Brown}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Aqua}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="3" Width="38" Height="38" Fill="{Binding Path=LightBlue}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Red, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Green, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="3" Width="38" Height="38" Fill="{Binding Path=Yellow, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="0" Width="38" Height="38" Fill="{Binding Path=Purple, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Brown, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Aqua, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="3" Width="38" Height="38" Fill="{Binding Path=LightBlue, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
     </Grid>
 </UserControl>

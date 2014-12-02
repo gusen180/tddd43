@@ -26,7 +26,11 @@ namespace tddd43 {
         }
 
         private void MouseEventHandler(object sender, MouseEventArgs e){
-            Game.Drag(sender, e);
+            Ellipse ellipse = sender as Ellipse;
+            if (ellipse != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragDrop.DoDragDrop(ellipse, ellipse.Fill.ToString(), DragDropEffects.Copy);
+            }
         }
     }
 }

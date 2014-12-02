@@ -9,58 +9,58 @@ namespace tddd43
 {
     class ColorPaletteModel
     {
-        private SolidColorBrush blue;
+        private string blue;
 
-        public SolidColorBrush Blue
+        public string Blue
         {
             get { return blue; }
             set { blue = value; }
         }
-        private SolidColorBrush red;
+        private string red;
 
-        public SolidColorBrush Red
+        public string Red
         {
             get { return red; }
             set { red = value; }
         }
-        private SolidColorBrush green;
+        private string green;
 
-        public SolidColorBrush Green
+        public string Green
         {
             get { return green; }
             set { green = value; }
         }
-        private SolidColorBrush yellow;
+        private string yellow;
 
-        public SolidColorBrush Yellow
+        public string Yellow
         {
             get { return yellow; }
             set { yellow = value; }
         }
-        private SolidColorBrush purple;
+        private string purple;
 
-        public SolidColorBrush Purple
+        public string Purple
         {
             get { return purple; }
             set { purple = value; }
         }
-        private SolidColorBrush brown;
+        private string brown;
 
-        public SolidColorBrush Brown
+        public string Brown
         {
             get { return brown; }
             set { brown = value; }
         }
-        private SolidColorBrush aqua;
+        private string aqua;
 
-        public SolidColorBrush Aqua
+        public string Aqua
         {
             get { return aqua; }
             set { aqua = value; }
         }
-        private SolidColorBrush lightBlue;
+        private string lightBlue;
 
-        public SolidColorBrush LightBlue
+        public string LightBlue
         {
             get { return lightBlue; }
             set { lightBlue = value; }
@@ -68,14 +68,14 @@ namespace tddd43
 
         public ColorPaletteModel()
         {
-            Blue = Brushes.Blue;
-            Red = Brushes.Red;
-            Green = Brushes.Green;
-            Yellow = Brushes.Yellow;
-            Purple = Brushes.Purple;
-            Brown = Brushes.Brown;
-            Aqua = Brushes.Aqua;
-            LightBlue = Brushes.LightBlue;
+            Blue = "Blue";
+            Red = "Red";
+            Green = "Green";
+            Yellow = "Yellow";
+            Purple = "Purple";
+            Brown = "Brown";
+            Aqua = "Aqua";
+            LightBlue = "LightBlue";
         }
 
     }

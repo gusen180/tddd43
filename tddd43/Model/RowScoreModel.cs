@@ -11,40 +11,40 @@ namespace tddd43 {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //private SolidColorBrush spot0;
-        public Brush[] rowScoreArray= new Brush[4];
+        public string[] rowScoreArray = new string[4];
 
-        public Brush Spot0 {
+        public string Spot0
+        {
             get { return rowScoreArray[0]; }
             set { rowScoreArray[0] = value; OnPropertyChanged("spot0"); }
         }
-        //private Brush spot1;
 
-        public Brush Spot1 {
+        public string Spot1
+        {
             get { return rowScoreArray[1]; }
             set { rowScoreArray[1] = value; OnPropertyChanged("spot1"); }
         }
-        //private Brush spot2;
 
-        public Brush Spot2 {
+        public string Spot2
+        {
             get { return rowScoreArray[2]; }
             set { rowScoreArray[2] = value; OnPropertyChanged("spot2"); }
         }
-        //private Brush spot3;
 
-        public Brush Spot3 {
+        public string Spot3
+        {
             get { return rowScoreArray[3]; }
             set { rowScoreArray[3] = value; OnPropertyChanged("spot3"); }
         }
 
         public RowScoreModel() {
-            rowScoreArray[0] = Brushes.Black;
-            rowScoreArray[1] = Brushes.Black;
-            rowScoreArray[2] = Brushes.Black;
-            rowScoreArray[3] = Brushes.Black;
+            Spot0 = "Black";
+            Spot1 = "Black";
+            Spot2 = "Black";
+            Spot3 = "Black";
         }
 
-        public void ChangeColor(int index, Brush color) {
+        public void ChangeColor(int index, string color) {
             rowScoreArray[index] = color;
             switch (index) {
                 case 0:
@@ -62,8 +62,6 @@ namespace tddd43 {
                 default:
                     break;
             }
-            Console.WriteLine(index);
-            Console.WriteLine(color);
         }
 
         protected void OnPropertyChanged(string name) {

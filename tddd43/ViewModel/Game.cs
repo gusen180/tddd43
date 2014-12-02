@@ -23,21 +23,21 @@ namespace tddd43.ViewModel
             rowScoreModelArray = rowScoreModels;
             solutionModel = solution;
             currentRow = 0;
-            rowModelArray[currentRow].BackgroundColor = Brushes.SlateGray;
-            rowModelArray[currentRow].AllowDrop = "True";
+            rowModelArray[currentRow].BackgroundColor = "SlateGray";
+            rowModelArray[currentRow].CurrentRow = true;
         }
 
-        public static void Drag(object sender, MouseEventArgs e)
-        {
-            Ellipse ellipse = sender as Ellipse;
-            if (ellipse != null && e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragDrop.DoDragDrop(ellipse, ellipse.Fill.ToString(), DragDropEffects.Copy);
-            }
-        }
+        //public static void Drag(object sender, MouseEventArgs e)
+        //{
+        //    Ellipse ellipse = sender as Ellipse;
+        //    if (ellipse != null && e.LeftButton == MouseButtonState.Pressed)
+        //    {
+        //        DragDrop.DoDragDrop(ellipse, ellipse.Fill.ToString(), DragDropEffects.Copy);
+        //    }
+        //}
 
-        public static void Drop(object sender, DragEventArgs e)
-        {
+        //public static void Drop(object sender, DragEventArgs e)
+        //{
             //Ellipse ellipse = sender as Ellipse;
             //if (ellipse != null)
             //{
@@ -71,15 +71,41 @@ namespace tddd43.ViewModel
             //        }
             //    }
             //}
+        //}
+
+        public static void ChangeColor(string spot, string color)
+        {
+            switch (spot)
+            {
+                case "0":
+                    rowModelArray[currentRow].Spot0 = color;
+                    break;
+                case "1":
+                    rowModelArray[currentRow].Spot1 = color;
+                    break;
+                case "2":
+                    rowModelArray[currentRow].Spot2 = color;
+                    break;
+                case "3":
+                    rowModelArray[currentRow].Spot3 = color;
+                    break;
+                default:
+                    break;
+            }
         }
 
-        private static Boolean CorrectSpotAndColor(int spot) {
-            return rowModelArray[currentRow].rowArray[spot].ToString() == solutionModel.solution[spot].ToString();
+        private static Boolean CorrectSpotAndColor(int spot)
+        {
+            Console.WriteLine(rowModelArray[currentRow].rowArray[spot]);
+            Console.WriteLine(solutionModel.internalSolution[spot]);
+            Console.WriteLine(spot);
+            return rowModelArray[currentRow].rowArray[spot] == solutionModel.internalSolution[spot];
         }
 
-        private static Boolean CorrectColor(int spot) {
+        private static Boolean CorrectColor(int spot, Boolean[] spotsUsed) {
             for (int i = 0; i < 4; i++) {
-                if (rowModelArray[currentRow].rowArray[i].ToString() == solutionModel.solution[spot].ToString()) {
+                if (rowModelArray[currentRow].rowArray[spot] == solutionModel.internalSolution[i] && !spotsUsed[i])
+                {
                     return true;
                 }
             }
@@ -87,36 +113,43 @@ namespace tddd43.ViewModel
         }
 
         public static void Accept(object sender, RoutedEventArgs e) {
-        //    Boolean[] spotsUsed = new Boolean[4] { false, false, false, false };
-        //    int correctSpotAndColor = 0;
-        //    int correctColor = 0;
-        //    for (int i = 0; i < 4; i++) {
-        //        if (CorrectSpotAndColor(i)) {
-        //            correctSpotAndColor = correctSpotAndColor + 1;
-        //            rowModelArray[currentRow].rowArray[i] = Brushes.Black;
-        //            spotsUsed[i] = true;
-        //        }
-        //    }
-        //    for (int i = 0; i < 4; i++) {
-        //        if (!spotsUsed[i] && CorrectColor(i)) {
-        //            correctColor = correctColor + 1;
-        //            spotsUsed[i] = true;
-        //        }
-        //    }
-        //    for (int i = 0; i < (correctSpotAndColor + correctColor); i++) {
-        //        if (i < correctSpotAndColor) {
-        //            rowScoreModelArray[currentRow].ChangeColor(i, Brushes.Red);
-        //        }
-        //        else {
-        //            rowScoreModelArray[currentRow].ChangeColor(i, Brushes.White);
-        //        }
-        //    }
+            Boolean[] spotUsed = new Boolean[4] { false, false, false, false };
+            int correctSpotAndColor = 0;
+            int correctColor = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                if (CorrectSpotAndColor(i))
+                {
+                    correctSpotAndColor = correctSpotAndColor + 1;
+                    //rowModelArray[currentRow].rowArray[i] = "Black";
+                    spotUsed[i] = true;
+                }
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                if (!spotUsed[i] && CorrectColor(i, spotUsed))
+                {
+                    correctColor = correctColor + 1;
+                    spotUsed[i] = true;
+                }
+            }
+            for (int i = 0; i < (correctSpotAndColor + correctColor); i++)
+            {
+                if (i < correctSpotAndColor)
+                {
+                    rowScoreModelArray[currentRow].ChangeColor(i, "Red");
+                }
+                else
+                {
+                    rowScoreModelArray[currentRow].ChangeColor(i, "White");
+                }
+            }
 
-        //    rowModelArray[currentRow].BackgroundColor = Brushes.DarkGray;
-        //    rowModelArray[currentRow].AllowDrop = "False";
-        //    currentRow = currentRow + 1;
-        //    rowModelArray[currentRow].BackgroundColor = Brushes.SlateGray;
-        //    rowModelArray[currentRow].AllowDrop = "True";
+            rowModelArray[currentRow].BackgroundColor = "DarkGray";
+            rowModelArray[currentRow].CurrentRow = false;
+            currentRow = currentRow + 1;
+            rowModelArray[currentRow].BackgroundColor = "SlateGray";
+            rowModelArray[currentRow].CurrentRow = true;
         }
     }
 }

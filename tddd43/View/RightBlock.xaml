@@ -7,9 +7,9 @@
              d:DesignHeight="50" d:DesignWidth="50">
     <Grid Background="Black">
         <Border Background="DarkGray" CornerRadius="0,15,15,0" />
-        <Ellipse Width="10" Height="10" Fill="{Binding Path=Spot0}" Margin="0,0,15,15"/>
-        <Ellipse Width="10" Height="10" Fill="{Binding Path=Spot1}" Margin="15,0,0,15"/>
-        <Ellipse Width="10" Height="10" Fill="{Binding Path=Spot2}" Margin="15,15,0,0"/>
-        <Ellipse Width="10" Height="10" Fill="{Binding Path=Spot3}" Margin="0,15,15,0"/>
+        <Ellipse Width="10" Height="10" Fill="{Binding Path=Spot0, Converter={StaticResource ConverterStringToBrush}}" Margin="0,0,15,15"/>
+        <Ellipse Width="10" Height="10" Fill="{Binding Path=Spot1, Converter={StaticResource ConverterStringToBrush}}" Margin="15,0,0,15"/>
+        <Ellipse Width="10" Height="10" Fill="{Binding Path=Spot2, Converter={StaticResource ConverterStringToBrush}}" Margin="15,15,0,0"/>
+        <Ellipse Width="10" Height="10" Fill="{Binding Path=Spot3, Converter={StaticResource ConverterStringToBrush}}" Margin="0,15,15,0"/>
     </Grid>
 </UserControl>

@@ -45,18 +45,18 @@ namespace tddd43 {
             set { rowArray[3] = value; OnPropertyChanged("spot3"); }
         }
 
-        private Brush backgroundColor;
+        private string backgroundColor;
 
-        public Brush BackgroundColor {
+        public string BackgroundColor {
             get { return backgroundColor; }
             set { backgroundColor = value; OnPropertyChanged("backgroundColor"); }
         }
 
-        private String allowDrop;
+        private bool currentRow;
 
-        public String AllowDrop {
-            get { return allowDrop; }
-            set { allowDrop = value; OnPropertyChanged("allowDrop"); }
+        public bool CurrentRow {
+            get { return currentRow; }
+            set { currentRow = value; OnPropertyChanged("currentRow"); }
         }
 
 
@@ -65,8 +65,8 @@ namespace tddd43 {
             Spot1 = "Gray";
             Spot2 = "Gray";
             Spot3 = "Gray";
-            backgroundColor = Brushes.DarkGray;
-            allowDrop = "False";
+            backgroundColor = "DarkGray";
+            currentRow = false;
         }
 
         protected void OnPropertyChanged(string name)

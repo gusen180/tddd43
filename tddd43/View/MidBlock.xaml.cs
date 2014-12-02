@@ -28,7 +28,54 @@ namespace tddd43
 
         private void Ellipse_Drop(object sender, DragEventArgs e)
         {
-            Game.Drop(sender, e);
+            Ellipse ellipse = sender as Ellipse;
+            if (ellipse != null)
+            {
+                // If the DataObject contains string data, extract it. 
+                if (e.Data.GetDataPresent(DataFormats.StringFormat))
+                {
+                    string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
+
+                    // If the string can be converted into a Brush,  
+                    // convert it and apply it to the ellipse.
+                    BrushConverter converter = new BrushConverter();
+                    if (converter.IsValid(dataString))
+                    {
+                        if (dataString == Brushes.Blue.ToString())
+                        {
+                            Game.ChangeColor(ellipse.Uid, "Blue");
+                        }
+                        else if (dataString == Brushes.Red.ToString())
+                        {
+                            Game.ChangeColor(ellipse.Uid, "Red");
+                        }
+                        else if (dataString == Brushes.Green.ToString())
+                        {
+                            Game.ChangeColor(ellipse.Uid, "Green");
+                        }
+                        else if (dataString == Brushes.Yellow.ToString())
+                        {
+                            Game.ChangeColor(ellipse.Uid, "Yellow");
+                        }
+                        else if (dataString == Brushes.Purple.ToString())
+                        {
+                            Game.ChangeColor(ellipse.Uid, "Purple");
+                        }
+                        else if (dataString == Brushes.Brown.ToString())
+                        {
+                            Game.ChangeColor(ellipse.Uid, "Brown");
+                        }
+                        else if (dataString == Brushes.Aqua.ToString())
+                        {
+                            Game.ChangeColor(ellipse.Uid, "Aqua");
+                        }
+                        else if (dataString == Brushes.LightBlue.ToString())
+                        {
+                            Game.ChangeColor(ellipse.Uid, "LightBlue");
+                        }
+                    }
+                }
+            }
         }
     }
 }

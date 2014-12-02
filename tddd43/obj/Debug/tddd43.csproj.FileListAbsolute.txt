@@ -68,3 +68,6 @@ C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\tddd43_MarkupCompile.lre
 C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\View\ColorPalette.baml
 C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\App.baml
+C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\obj\Debug\tddd43.csprojResolveAssemblyReference.cache
+C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\obj\Debug\App.baml
