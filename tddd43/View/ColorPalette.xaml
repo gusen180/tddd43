@@ -5,10 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:helpers="clr-namespace:tddd43.Helpers"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="100">
+             d:DesignHeight="150" d:DesignWidth="100">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
@@ -24,10 +23,8 @@
         </Ellipse>
         <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Red, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
         <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Green, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="3" Width="38" Height="38" Fill="{Binding Path=Yellow, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
         <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="0" Width="38" Height="38" Fill="{Binding Path=Purple, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
         <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Brown, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Aqua, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="3" Width="38" Height="38" Fill="{Binding Path=LightBlue, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Yellow, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
     </Grid>
 </UserControl>

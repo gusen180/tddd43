@@ -18,7 +18,8 @@ namespace tddd43.ViewModel
         public static RowScoreModel[] rowScoreModelArray;
         public static SolutionModel solutionModel;
 
-        public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution) {
+        public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution)
+        {
             rowModelArray = rowModels;
             rowScoreModelArray = rowScoreModels;
             solutionModel = solution;
@@ -38,39 +39,39 @@ namespace tddd43.ViewModel
 
         //public static void Drop(object sender, DragEventArgs e)
         //{
-            //Ellipse ellipse = sender as Ellipse;
-            //if (ellipse != null)
-            //{
-            //    // If the DataObject contains string data, extract it. 
-            //    if (e.Data.GetDataPresent(DataFormats.StringFormat))
-            //    {
-            //        string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
+        //Ellipse ellipse = sender as Ellipse;
+        //if (ellipse != null)
+        //{
+        //    // If the DataObject contains string data, extract it. 
+        //    if (e.Data.GetDataPresent(DataFormats.StringFormat))
+        //    {
+        //        string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
 
-            //        // If the string can be converted into a Brush,  
-            //        // convert it and apply it to the ellipse.
-            //        BrushConverter converter = new BrushConverter();
-            //        if (converter.IsValid(dataString))
-            //        {
-            //            Brush newFill = (Brush)converter.ConvertFromString(dataString);
-            //            switch (ellipse.Uid) {
-            //                case "0":
-            //                    rowModelArray[currentRow].Spot0 = newFill;
-            //                    break;
-            //                case "1":
-            //                    rowModelArray[currentRow].Spot1 = newFill;
-            //                    break;
-            //                case "2":
-            //                    rowModelArray[currentRow].Spot2 = newFill;
-            //                    break;
-            //                case "3":
-            //                    rowModelArray[currentRow].Spot3 = newFill;
-            //                    break;
-            //                default:
-            //                    break;
-            //            }
-            //        }
-            //    }
-            //}
+        //        // If the string can be converted into a Brush,  
+        //        // convert it and apply it to the ellipse.
+        //        BrushConverter converter = new BrushConverter();
+        //        if (converter.IsValid(dataString))
+        //        {
+        //            Brush newFill = (Brush)converter.ConvertFromString(dataString);
+        //            switch (ellipse.Uid) {
+        //                case "0":
+        //                    rowModelArray[currentRow].Spot0 = newFill;
+        //                    break;
+        //                case "1":
+        //                    rowModelArray[currentRow].Spot1 = newFill;
+        //                    break;
+        //                case "2":
+        //                    rowModelArray[currentRow].Spot2 = newFill;
+        //                    break;
+        //                case "3":
+        //                    rowModelArray[currentRow].Spot3 = newFill;
+        //                    break;
+        //                default:
+        //                    break;
+        //            }
+        //        }
+        //    }
+        //}
         //}
 
         public static void ChangeColor(string spot, string color)
@@ -102,8 +103,10 @@ namespace tddd43.ViewModel
             return rowModelArray[currentRow].rowArray[spot] == solutionModel.internalSolution[spot];
         }
 
-        private static Boolean CorrectColor(int spot, Boolean[] spotsUsed) {
-            for (int i = 0; i < 4; i++) {
+        private static Boolean CorrectColor(int spot, Boolean[] spotsUsed)
+        {
+            for (int i = 0; i < 4; i++)
+            {
                 if (rowModelArray[currentRow].rowArray[spot] == solutionModel.internalSolution[i] && !spotsUsed[i])
                 {
                     return true;
@@ -112,7 +115,8 @@ namespace tddd43.ViewModel
             return false;
         }
 
-        public static void Accept(object sender, RoutedEventArgs e) {
+        public static void Accept(object sender, RoutedEventArgs e)
+        {
             Boolean[] spotUsed = new Boolean[4] { false, false, false, false };
             int correctSpotAndColor = 0;
             int correctColor = 0;
@@ -151,5 +155,41 @@ namespace tddd43.ViewModel
             rowModelArray[currentRow].BackgroundColor = "SlateGray";
             rowModelArray[currentRow].CurrentRow = true;
         }
+
+
+        //public static void test()
+        //{
+        //    Outcome[] outcomes = new[] { new Outcome { White = 0, Black = 0 },
+        //        new Outcome { White = 1, Black = 0 },
+        //                     // ... all other possibilities
+        //                    };
+
+        //    // assume we have some list of combinations
+        //    int min = Integer.MaxValue;
+        //    Combination minCombination = null;
+        //    foreach (var guess in combinations)
+        //    {
+        //        int max = 0;
+        //        foreach (var outcome in outcomes)
+        //        {
+        //            var count = 0;
+        //            foreach (var solution in combinations)
+        //            {
+        //                if (Check(guess, solution) == outcome)
+        //                    count++;
+        //            }
+        //            if (count > max)
+        //                max = count;
+        //        }
+        //        if (max < min)
+        //        {
+        //            min = max;
+        //            minCombination = guess;
+        //        }
+        //    }
+        //}
+
+
+
     }
 }
