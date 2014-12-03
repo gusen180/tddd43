@@ -97,18 +97,19 @@ namespace tddd43.ViewModel
 
         private static Boolean CorrectSpotAndColor(int spot)
         {
-            Console.WriteLine(rowModelArray[currentRow].rowArray[spot]);
-            Console.WriteLine(solutionModel.internalSolution[spot]);
-            Console.WriteLine(spot);
+            //Console.WriteLine(rowModelArray[currentRow].rowArray[spot]);
+            //Console.WriteLine(solutionModel.internalSolution[spot]);
+            //Console.WriteLine(spot);
             return rowModelArray[currentRow].rowArray[spot] == solutionModel.internalSolution[spot];
         }
 
-        private static Boolean CorrectColor(int spot, Boolean[] spotsUsed)
+        private static Boolean CorrectColor(int spot, Boolean[] spotsUsedSolution)
         {
             for (int i = 0; i < 4; i++)
             {
-                if (rowModelArray[currentRow].rowArray[spot] == solutionModel.internalSolution[i] && !spotsUsed[i])
+                if (rowModelArray[currentRow].rowArray[spot] == solutionModel.internalSolution[i] && !spotsUsedSolution[i])
                 {
+                    spotsUsedSolution[i] = true;
                     return true;
                 }
             }
@@ -117,7 +118,8 @@ namespace tddd43.ViewModel
 
         public static void Accept(object sender, RoutedEventArgs e)
         {
-            Boolean[] spotUsed = new Boolean[4] { false, false, false, false };
+            Boolean[] spotsUsedGuess = new Boolean[4] { false, false, false, false };
+            Boolean[] spotsUsedSolution = new Boolean[4] { false, false, false, false };
             int correctSpotAndColor = 0;
             int correctColor = 0;
             for (int i = 0; i < 4; i++)
@@ -125,16 +127,16 @@ namespace tddd43.ViewModel
                 if (CorrectSpotAndColor(i))
                 {
                     correctSpotAndColor = correctSpotAndColor + 1;
-                    //rowModelArray[currentRow].rowArray[i] = "Black";
-                    spotUsed[i] = true;
+                    spotsUsedGuess[i] = true;
+                    spotsUsedSolution[i] = true;
                 }
             }
             for (int i = 0; i < 4; i++)
             {
-                if (!spotUsed[i] && CorrectColor(i, spotUsed))
+                if (!spotsUsedGuess[i] && CorrectColor(i, spotsUsedSolution))
                 {
                     correctColor = correctColor + 1;
-                    spotUsed[i] = true;
+                    spotsUsedGuess[i] = true;
                 }
             }
             for (int i = 0; i < (correctSpotAndColor + correctColor); i++)
