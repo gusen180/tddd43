@@ -18,6 +18,12 @@ namespace tddd43.ViewModel
         public static RowScoreModel[] rowScoreModelArray;
         public static SolutionModel solutionModel;
 
+        // AI ska flyttas,   http://sartak.org/nh/mastermind.html
+        public static List<string> notes = new List<string> { "Blue", "Red", "Green", "Purple", "Brown", "Yellow" };
+        public static List<string> tune;
+        //public static string[] notes = new string[6]{"Blue", "Red", "Green", "Purple", "Brown", "Yellow"};
+        //public static string[] tune = new string[4] { "NoColor", "NoColor", "NoColor", "NoColor"}; 
+
         public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution)
         {
             rowModelArray = rowModels;
@@ -116,7 +122,7 @@ namespace tddd43.ViewModel
             return false;
         }
 
-        public static void Accept(object sender, RoutedEventArgs e)
+        public static void CheckGuess()
         {
             Boolean[] spotsUsedGuess = new Boolean[4] { false, false, false, false };
             Boolean[] spotsUsedSolution = new Boolean[4] { false, false, false, false };
@@ -158,40 +164,9 @@ namespace tddd43.ViewModel
             rowModelArray[currentRow].CurrentRow = true;
         }
 
-
-        //public static void test()
-        //{
-        //    Outcome[] outcomes = new[] { new Outcome { White = 0, Black = 0 },
-        //        new Outcome { White = 1, Black = 0 },
-        //                     // ... all other possibilities
-        //                    };
-
-        //    // assume we have some list of combinations
-        //    int min = Integer.MaxValue;
-        //    Combination minCombination = null;
-        //    foreach (var guess in combinations)
-        //    {
-        //        int max = 0;
-        //        foreach (var outcome in outcomes)
-        //        {
-        //            var count = 0;
-        //            foreach (var solution in combinations)
-        //            {
-        //                if (Check(guess, solution) == outcome)
-        //                    count++;
-        //            }
-        //            if (count > max)
-        //                max = count;
-        //        }
-        //        if (max < min)
-        //        {
-        //            min = max;
-        //            minCombination = guess;
-        //        }
-        //    }
-        //}
-
-
-
+        public static void AINextMove()
+        {
+            tune.Add(notes[0]);
+        } 
     }
 }
