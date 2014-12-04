@@ -11,11 +11,11 @@ namespace tddd43 {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string[] rowArray = new string[4];
+        public int[] rowArray = new int[4];
 
         //public Brush spot0;
 
-        public string Spot0
+        public int Spot0
         {
             get { return rowArray[0]; }
             set { rowArray[0] = value; OnPropertyChanged("spot0"); }
@@ -23,7 +23,7 @@ namespace tddd43 {
         
         //private Brush spot1;
 
-        public string Spot1
+        public int Spot1
         {
             get { return rowArray[1]; }
             set { rowArray[1] = value; OnPropertyChanged("spot1"); }
@@ -31,7 +31,7 @@ namespace tddd43 {
 
         //private Brush spot2;
 
-        public string Spot2
+        public int Spot2
         {
             get { return rowArray[2]; }
             set { rowArray[2] = value; OnPropertyChanged("spot2"); }
@@ -39,7 +39,7 @@ namespace tddd43 {
 
         //private Brush spot3;
 
-        public string Spot3
+        public int Spot3
         {
             get { return rowArray[3]; }
             set { rowArray[3] = value; OnPropertyChanged("spot3"); }
@@ -61,10 +61,10 @@ namespace tddd43 {
 
 
         public RowModel() {
-            Spot0 = "Gray";
-            Spot1 = "Gray";
-            Spot2 = "Gray";
-            Spot3 = "Gray";
+            Spot0 = 7;
+            Spot1 = 7;
+            Spot2 = 7;
+            Spot3 = 7;
             backgroundColor = "DarkGray";
             currentRow = false;
         }

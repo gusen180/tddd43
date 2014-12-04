@@ -4,5 +4,6 @@
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <converter:ConverterStringToBrush xmlns:converter="clr-namespace:tddd43.Helpers" x:Key="ConverterStringToBrush" />
+        <converter:IntToBrush xmlns:converter="clr-namespace:tddd43.Helpers" x:Key="IntToBrush" />
     </Application.Resources>
 </Application>

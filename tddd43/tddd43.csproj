@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\ConverterStringToBrush.cs" />
+    <Compile Include="Helpers\IntToBrush.cs" />
     <Compile Include="Helpers\MyCommandBase.cs" />
     <Compile Include="Model\SolutionModel.cs" />
     <Compile Include="ViewModel\Game.cs" />

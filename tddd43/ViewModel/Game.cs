@@ -80,21 +80,21 @@ namespace tddd43.ViewModel
         //}
         //}
 
-        public static void ChangeColor(string spot, string color)
+        public static void ChangeColor(string spot, int value)
         {
             switch (spot)
             {
                 case "0":
-                    rowModelArray[currentRow].Spot0 = color;
+                    rowModelArray[currentRow].Spot0 = value;
                     break;
                 case "1":
-                    rowModelArray[currentRow].Spot1 = color;
+                    rowModelArray[currentRow].Spot1 = value;
                     break;
                 case "2":
-                    rowModelArray[currentRow].Spot2 = color;
+                    rowModelArray[currentRow].Spot2 = value;
                     break;
                 case "3":
-                    rowModelArray[currentRow].Spot3 = color;
+                    rowModelArray[currentRow].Spot3 = value;
                     break;
                 default:
                     break;

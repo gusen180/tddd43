@@ -86,8 +86,8 @@ namespace tddd43
         }
 
         private void ClickEvent(object sender, RoutedEventArgs e) {
-            //Game.CheckGuess();
-            Game.AINextMove();
+            Game.CheckGuess();
+            //Game.AINextMove();
         }
     }
 }

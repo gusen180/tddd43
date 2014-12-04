@@ -43,35 +43,25 @@ namespace tddd43
                     {
                         if (dataString == Brushes.Blue.ToString())
                         {
-                            Game.ChangeColor(ellipse.Uid, "Blue");
+                            Game.ChangeColor(ellipse.Uid, 0);
                         }
-                        else if (dataString == Brushes.Red.ToString())
-                        {
-                            Game.ChangeColor(ellipse.Uid, "Red");
+                        else if (dataString == Brushes.Yellow.ToString()) {
+                            Game.ChangeColor(ellipse.Uid, 1);
                         }
                         else if (dataString == Brushes.Green.ToString())
                         {
-                            Game.ChangeColor(ellipse.Uid, "Green");
-                        }
-                        else if (dataString == Brushes.Yellow.ToString())
-                        {
-                            Game.ChangeColor(ellipse.Uid, "Yellow");
+                            Game.ChangeColor(ellipse.Uid, 2);
                         }
                         else if (dataString == Brushes.Purple.ToString())
                         {
-                            Game.ChangeColor(ellipse.Uid, "Purple");
+                            Game.ChangeColor(ellipse.Uid, 3);
                         }
                         else if (dataString == Brushes.Brown.ToString())
                         {
-                            Game.ChangeColor(ellipse.Uid, "Brown");
+                            Game.ChangeColor(ellipse.Uid, 4);
                         }
-                        else if (dataString == Brushes.Aqua.ToString())
-                        {
-                            Game.ChangeColor(ellipse.Uid, "Aqua");
-                        }
-                        else if (dataString == Brushes.LightBlue.ToString())
-                        {
-                            Game.ChangeColor(ellipse.Uid, "LightBlue");
+                        else if (dataString == Brushes.Red.ToString()) {
+                            Game.ChangeColor(ellipse.Uid, 5);
                         }
                     }
                 }
