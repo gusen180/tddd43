@@ -2,45 +2,5 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="750" Width="450">
-    <Grid Name="MasterMind" Background="Black" SnapsToDevicePixels="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*" />
-            <ColumnDefinition Width="2*" />
-        </Grid.ColumnDefinitions>
-        
-        <Grid Grid.Column="0" Name="MasterMindLeft" Background="Black" SnapsToDevicePixels="True">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="8*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-        </Grid>
-
-        <Grid Grid.Column="1" Name="MasterMindRight" Background="Black" SnapsToDevicePixels="True">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="7*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*" />
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="2" Click="ClickEvent">Accept</Button>
-        </Grid>
-    </Grid>
+    <Frame Name="MyFrame"/>
 </Window>

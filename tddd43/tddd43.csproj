@@ -62,15 +62,25 @@
       <DependentUpon>ColorPalette.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ColorPaletteModel.cs" />
+    <Compile Include="View\GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RightBlock.xaml.cs">
       <DependentUpon>RightBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\RowModel.cs" />
     <Compile Include="Model\RowScoreModel.cs" />
+    <Compile Include="View\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TopMidBlock.xaml.cs">
       <DependentUpon>TopMidBlock.xaml</DependentUpon>
     </Compile>
     <Page Include="View\ColorPalette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RightBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
