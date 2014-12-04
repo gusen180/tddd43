@@ -22,5 +22,17 @@ namespace tddd43.View {
         public StartPage() {
             InitializeComponent();
         }
+
+        private void StartNewGameButton(object sender, RoutedEventArgs e)
+        {
+            var mainWnd = Application.Current.MainWindow as MainWindow;
+            if (mainWnd != null)
+                mainWnd.GoToGamePage();
+        }
+
+        private void StartNewAIGameButton(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

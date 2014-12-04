@@ -57,6 +57,7 @@
     <Compile Include="Helpers\IntToBrush.cs" />
     <Compile Include="Helpers\MyCommandBase.cs" />
     <Compile Include="Model\SolutionModel.cs" />
+    <Compile Include="ViewModel\AI.cs" />
     <Compile Include="ViewModel\Game.cs" />
     <Compile Include="View\ColorPalette.xaml.cs">
       <DependentUpon>ColorPalette.xaml</DependentUpon>

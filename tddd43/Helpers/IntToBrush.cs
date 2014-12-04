@@ -27,6 +27,8 @@ namespace tddd43.Helpers {
                     return Brushes.White;
                 case 7:
                     return Brushes.Gray;
+                case 8:
+                    return Brushes.Black;
                 default:
                     return Brushes.Gray;
             }

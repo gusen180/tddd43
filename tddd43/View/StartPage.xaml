@@ -8,8 +8,8 @@
 	Title="StartPage">
 
     <StackPanel>
-        <Button>Start New Game</Button>
-        <Button>Start New AI Game</Button>
+        <Button Click="StartNewGameButton">Start New Game</Button>
+        <Button Click="StartNewAIGameButton">Start New AI Game</Button>
         <Button>Load Game</Button>
     </StackPanel>
 </Page>

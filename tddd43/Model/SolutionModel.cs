@@ -42,10 +42,11 @@ namespace tddd43 {
             Spot1 = 6;
             Spot2 = 6;
             Spot3 = 6;
-            internalSolution[0] = 0;
-            internalSolution[1] = 0;
-            internalSolution[2] = 2;
-            internalSolution[3] = 1;
+            Random rnd = new Random();
+            internalSolution[0] = rnd.Next(6);
+            internalSolution[1] = rnd.Next(6);
+            internalSolution[2] = rnd.Next(6);
+            internalSolution[3] = rnd.Next(6);
         }
 
         protected void OnPropertyChanged(string name) {
