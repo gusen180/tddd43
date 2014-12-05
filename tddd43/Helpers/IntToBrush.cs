@@ -20,7 +20,7 @@ namespace tddd43.Helpers {
                 case 3:
                     return Brushes.Purple;
                 case 4:
-                    return Brushes.Brown;
+                    return Brushes.Aqua;
                 case 5:
                     return Brushes.Red;
                 case 6:

@@ -37,12 +37,12 @@ namespace tddd43
             get { return purple; }
             set { purple = value; }
         }
-        private string brown;
+        private string aqua;
 
-        public string Brown
+        public string Aqua
         {
-            get { return brown; }
-            set { brown = value; }
+            get { return aqua; }
+            set { aqua = value; }
         }
         private string yellow;
 
@@ -59,7 +59,7 @@ namespace tddd43
             Red = "Red";
             Green = "Green";
             Purple = "Purple";
-            Brown = "Brown";
+            Aqua = "Aqua";
             Yellow = "Yellow";
         }
 

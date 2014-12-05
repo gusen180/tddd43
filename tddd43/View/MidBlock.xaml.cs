@@ -56,7 +56,7 @@ namespace tddd43
                         {
                             Game.ChangeColor(ellipse.Uid, 3);
                         }
-                        else if (dataString == Brushes.Brown.ToString())
+                        else if (dataString == Brushes.Aqua.ToString())
                         {
                             Game.ChangeColor(ellipse.Uid, 4);
                         }

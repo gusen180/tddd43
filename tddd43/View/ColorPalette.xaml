@@ -24,7 +24,7 @@
         <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Red, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
         <Ellipse MouseMove="MouseEventHandler" Grid.Column="0" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Green, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
         <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="0" Width="38" Height="38" Fill="{Binding Path=Purple, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
-        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Brown, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
+        <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="1" Width="38" Height="38" Fill="{Binding Path=Aqua, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
         <Ellipse MouseMove="MouseEventHandler" Grid.Column="1" Grid.Row="2" Width="38" Height="38" Fill="{Binding Path=Yellow, Converter={StaticResource ConverterStringToBrush}}" Stroke="LightGray"/>
     </Grid>
 </UserControl>
