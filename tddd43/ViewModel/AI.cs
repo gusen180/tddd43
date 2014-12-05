@@ -16,7 +16,7 @@ namespace tddd43.ViewModel
         public static RowModel[] rowModelArray;
         public static RowScoreModel[] rowScoreModelArray;
         public static List<int[]> possibilities;
-        public static int[] guess = new int[4]{0,0,1,1};
+        public static int[] guess;
 
         public AI(){
             currentRow = Game.currentRow;
@@ -36,6 +36,9 @@ namespace tddd43.ViewModel
                     }
                 }
             }
+            possibilities.RemoveAt(7);
+            guess = new int[4] { 0, 0, 1, 1 };
+            NextAIMove();
         }
 
         private static Boolean CorrectSpotAndColor(int[] possible, int spot)
@@ -84,42 +87,42 @@ namespace tddd43.ViewModel
 
         public static void NextAIMove()
         {
-            if (currentRow != 0)
-            {
-                guess = possibilities[0];
-                possibilities.RemoveAt(0);
-                //skicka till game här
-            }
-            else
-            {
-                //skicka till game här
-            }
-            int correctSpotAndColor = 0;
-            int correctColor = 0;
-            for (int i = 0; i < 4; i++){
-                if (rowScoreModelArray[currentRow].rowScoreArray[i] == 5)
+            Console.WriteLine(currentRow);
+            if (possibilities.Count() > 0) { 
+                if (currentRow != 0)
                 {
-                    correctSpotAndColor = correctSpotAndColor + 1;
+                    guess = possibilities[0];
+                    possibilities.RemoveAt(0);
                 }
-                else if (rowScoreModelArray[currentRow].rowScoreArray[i] == 6)
-                {
-                    correctColor = correctColor + 1;
+                rowModelArray[currentRow].Spot0 = guess[0];
+                rowModelArray[currentRow].Spot1 = guess[1];
+                rowModelArray[currentRow].Spot2 = guess[2];
+                rowModelArray[currentRow].Spot3 = guess[3];
+
+                Game.CheckGuess();
+
+                int correctSpotAndColor = 0;
+                int correctColor = 0;
+                for (int i = 0; i < 4; i++){
+                    if (rowScoreModelArray[currentRow].rowScoreArray[i] == 5)
+                    {
+                        correctSpotAndColor = correctSpotAndColor + 1;
+                    }
+                    else if (rowScoreModelArray[currentRow].rowScoreArray[i] == 6)
+                    {
+                        correctColor = correctColor + 1;
+                    }
                 }
-            }
             
-            for (int i = possibilities.Count() - 1; i >= 0; i--)
-            {
-                if (!StillPossible(possibilities[i], correctSpotAndColor, correctColor))
+                for (int i = possibilities.Count() - 1; i >= 0; i--)
                 {
-                    possibilities.RemoveAt(i);
+                    if (!StillPossible(possibilities[i], correctSpotAndColor, correctColor))
+                    {
+                        possibilities.RemoveAt(i);
+                    }
                 }
+                currentRow = currentRow + 1;
             }
-            currentRow = currentRow + 1;
-            Console.WriteLine(possibilities[0][0]);
-            Console.WriteLine(possibilities[0][1]);
-            Console.WriteLine(possibilities[0][2]);
-            Console.WriteLine(possibilities[0][3]);
-            Console.WriteLine(possibilities.Count());
         }
     }
 }

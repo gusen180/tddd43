@@ -27,7 +27,6 @@ namespace tddd43.ViewModel
             currentRow = 0;
             rowModelArray[currentRow].BackgroundColor = "SlateGray";
             rowModelArray[currentRow].CurrentRow = true;
-            new AI();
         }
 
         public static void ChangeColor(string spot, int value)
@@ -104,13 +103,24 @@ namespace tddd43.ViewModel
                 }
             }
 
-            //AI.NextAIMove();
+            if (correctSpotAndColor == 4)
+            {
+                solutionModel.Spot0 = solutionModel.internalSolution[0];
+                solutionModel.Spot1 = solutionModel.internalSolution[1];
+                solutionModel.Spot2 = solutionModel.internalSolution[2];
+                solutionModel.Spot3 = solutionModel.internalSolution[3];
+                rowModelArray[currentRow].CurrentRow = false;
+            }
+            else
+            {
+                rowModelArray[currentRow].BackgroundColor = "DarkGray";
+                rowModelArray[currentRow].CurrentRow = false;
+                currentRow = currentRow + 1;
+                rowModelArray[currentRow].BackgroundColor = "SlateGray";
+                rowModelArray[currentRow].CurrentRow = true;
+            }
 
-            rowModelArray[currentRow].BackgroundColor = "DarkGray";
-            rowModelArray[currentRow].CurrentRow = false;
-            currentRow = currentRow + 1;
-            rowModelArray[currentRow].BackgroundColor = "SlateGray";
-            rowModelArray[currentRow].CurrentRow = true;
+            //AI.NextAIMove();
         }
 
     }

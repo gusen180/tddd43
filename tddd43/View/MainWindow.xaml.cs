@@ -25,8 +25,7 @@ namespace tddd43
         public MainWindow() {
 
             InitializeComponent();
-            MyFrame.Navigate(new GamePage());
-
+            MyFrame.Navigate(new StartPage());
         }
 
         public void GoToStartPage()
@@ -36,7 +35,12 @@ namespace tddd43
 
         public void GoToGamePage()
         {
-            MyFrame.Navigate(new GamePage());
+            MyFrame.Navigate(new GamePage(false));
+        }
+
+        public void GoToGamePageAi()
+        {
+            MyFrame.Navigate(new GamePage(true));
         }
     }
 }

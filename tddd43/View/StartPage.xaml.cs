@@ -32,7 +32,9 @@ namespace tddd43.View {
 
         private void StartNewAIGameButton(object sender, RoutedEventArgs e)
         {
-
+            var mainWnd = Application.Current.MainWindow as MainWindow;
+            if (mainWnd != null)
+                mainWnd.GoToGamePageAi();
         }
     }
 }
