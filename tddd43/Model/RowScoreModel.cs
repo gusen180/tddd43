@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Xml.Linq;
 
 namespace tddd43 {
     class RowScoreModel : INotifyPropertyChanged {
@@ -13,28 +14,60 @@ namespace tddd43 {
 
         public int[] rowScoreArray = new int[4];
 
+        private int rowNr;
+
+        public int RowNr
+        {
+            get { return rowNr; }
+            set { rowNr = value; }
+        }
+
         public int Spot0
         {
             get { return rowScoreArray[0]; }
-            set { rowScoreArray[0] = value; OnPropertyChanged("spot0"); }
+            set { rowScoreArray[0] = value; OnPropertyChanged("spot0");
+            XElement xEle = XElement.Load("XmlData.xml");
+            var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Score0").ElementAt(rowNr);
+            spot.ReplaceNodes(value);
+            xEle.Save("XmlData.xml");
+            }
         }
 
         public int Spot1
         {
             get { return rowScoreArray[1]; }
-            set { rowScoreArray[1] = value; OnPropertyChanged("spot1"); }
+            set { rowScoreArray[1] = value; OnPropertyChanged("spot1");
+            XElement xEle = XElement.Load("XmlData.xml");
+            var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Score1").ElementAt(rowNr);
+            spot.ReplaceNodes(value);
+            xEle.Save("XmlData.xml");
+            }
         }
 
         public int Spot2
         {
             get { return rowScoreArray[2]; }
-            set { rowScoreArray[2] = value; OnPropertyChanged("spot2"); }
+            set
+            {
+                rowScoreArray[2] = value; OnPropertyChanged("spot2");
+                XElement xEle = XElement.Load("XmlData.xml");
+                var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Score2").ElementAt(rowNr);
+                spot.ReplaceNodes(value);
+                xEle.Save("XmlData.xml");
+            }
         }
 
         public int Spot3
         {
             get { return rowScoreArray[3]; }
-            set { rowScoreArray[3] = value; OnPropertyChanged("spot3"); }
+            set
+            {
+                rowScoreArray[3] = value; OnPropertyChanged("spot3");
+                XElement xEle = XElement.Load("XmlData.xml");
+                var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Score3").ElementAt(rowNr);
+                spot.ReplaceNodes(value);
+                xEle.Save("XmlData.xml");
+            }
         }
 
         public RowScoreModel() {
@@ -44,7 +77,7 @@ namespace tddd43 {
             Spot3 = 8;
         }
 
-        public void ChangeColor(int index, int value) {
+        public void ChangeValue(int index, int value) {
             switch (index) {
                 case 0:
                     Spot0 = value;

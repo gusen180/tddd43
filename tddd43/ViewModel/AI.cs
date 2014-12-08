@@ -87,7 +87,7 @@ namespace tddd43.ViewModel
 
         public static void NextAIMove()
         {
-            Console.WriteLine(currentRow);
+            Console.WriteLine(possibilities.Count());
             if (possibilities.Count() > 0) { 
                 if (currentRow != 0)
                 {

@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using tddd43.Helpers;
 
 namespace tddd43.ViewModel
 {
@@ -24,9 +25,15 @@ namespace tddd43.ViewModel
             rowModelArray = rowModels;
             rowScoreModelArray = rowScoreModels;
             solutionModel = solution;
+            for (int i = 0; i < 10; i++)
+            {
+                rowModelArray[i].RowNr = i;
+                rowScoreModelArray[i].RowNr = i;
+            }
             currentRow = 0;
             rowModelArray[currentRow].BackgroundColor = "SlateGray";
             rowModelArray[currentRow].CurrentRow = true;
+            new XmlHelper();
         }
 
         public static void ChangeColor(string spot, int value)
@@ -95,11 +102,11 @@ namespace tddd43.ViewModel
             {
                 if (i < correctSpotAndColor)
                 {
-                    rowScoreModelArray[currentRow].ChangeColor(i, 5);
+                    rowScoreModelArray[currentRow].ChangeValue(i, 5);
                 }
                 else
                 {
-                    rowScoreModelArray[currentRow].ChangeColor(i, 6);
+                    rowScoreModelArray[currentRow].ChangeValue(i, 6);
                 }
             }
 

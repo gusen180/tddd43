@@ -6,7 +6,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="GamePage">
-
     <Grid Name="MasterMind" Background="Black" SnapsToDevicePixels="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*" />
