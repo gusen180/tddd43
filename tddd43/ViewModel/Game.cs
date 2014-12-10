@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using tddd43.Helpers;
 
 namespace tddd43.ViewModel
@@ -20,23 +21,55 @@ namespace tddd43.ViewModel
         public static SolutionModel solutionModel;
 
 
-        public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution)
+        public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution, bool loadGame = false)
         {
             rowModelArray = rowModels;
             rowScoreModelArray = rowScoreModels;
             solutionModel = solution;
+
             for (int i = 0; i < 10; i++)
             {
                 rowModelArray[i].RowNr = i;
                 rowScoreModelArray[i].RowNr = i;
             }
-            currentRow = 0;
-            rowModelArray[currentRow].BackgroundColor = "SlateGray";
-            rowModelArray[currentRow].CurrentRow = true;
-            new XmlHelper();
+            if (loadGame)
+            {
+                LoadFromXml();
+            }
+            else
+            {
+                new XmlHelper();
+                solutionModel.CreateSolution();
+                currentRow = 0;
+                rowModelArray[currentRow].CurrentRow = true;
+            }
         }
 
-        public static void ChangeColor(string spot, int value)
+        public static void LoadFromXml()
+        {
+            XElement xEle = XElement.Load("XmlData.xml");
+            var rowData = xEle.Descendants("Rows").Descendants("Row");
+            for (int i = 0; i < 10; i++ )
+            {
+                rowModelArray[i].CurrentRow = Convert.ToBoolean(rowData.Descendants("CurrentRow").ElementAt(rowModelArray[i].RowNr).Value);
+                if (rowModelArray[i].CurrentRow)
+                {
+                    currentRow = Convert.ToInt32(rowData.Descendants("RowNr").ElementAt(rowModelArray[i].RowNr).Value);
+                }
+                rowModelArray[i].Spot0 = Convert.ToInt32(rowData.Descendants("Spot0").ElementAt(rowModelArray[i].RowNr).Value);
+                rowModelArray[i].Spot1 = Convert.ToInt32(rowData.Descendants("Spot1").ElementAt(rowModelArray[i].RowNr).Value);
+                rowModelArray[i].Spot2 = Convert.ToInt32(rowData.Descendants("Spot2").ElementAt(rowModelArray[i].RowNr).Value);
+                rowModelArray[i].Spot3 = Convert.ToInt32(rowData.Descendants("Spot3").ElementAt(rowModelArray[i].RowNr).Value);
+                rowScoreModelArray[i].Spot0 = Convert.ToInt32(rowData.Descendants("Score0").ElementAt(rowModelArray[i].RowNr).Value);
+                rowScoreModelArray[i].Spot1 = Convert.ToInt32(rowData.Descendants("Score1").ElementAt(rowModelArray[i].RowNr).Value);
+                rowScoreModelArray[i].Spot2 = Convert.ToInt32(rowData.Descendants("Score2").ElementAt(rowModelArray[i].RowNr).Value);
+                rowScoreModelArray[i].Spot3 = Convert.ToInt32(rowData.Descendants("Score3").ElementAt(rowModelArray[i].RowNr).Value);
+            }
+            solutionModel.LoadSolution(xEle);
+        }
+
+
+        public static void UpdateRowModel(string spot, int value)
         {
             switch (spot)
             {
@@ -120,14 +153,10 @@ namespace tddd43.ViewModel
             }
             else
             {
-                rowModelArray[currentRow].BackgroundColor = "DarkGray";
                 rowModelArray[currentRow].CurrentRow = false;
                 currentRow = currentRow + 1;
-                rowModelArray[currentRow].BackgroundColor = "SlateGray";
                 rowModelArray[currentRow].CurrentRow = true;
             }
-
-            //AI.NextAIMove();
         }
 
     }

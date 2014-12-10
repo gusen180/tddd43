@@ -69,28 +69,30 @@ namespace tddd43 {
             }
         }
 
-        private string backgroundColor;
-
-        public string BackgroundColor {
-            get { return backgroundColor; }
-            set { backgroundColor = value; OnPropertyChanged("backgroundColor"); }
-        }
-
         private bool currentRow;
 
         public bool CurrentRow {
             get { return currentRow; }
-            set { currentRow = value; OnPropertyChanged("currentRow"); }
+            set
+            {
+                currentRow = value; OnPropertyChanged("currentRow");
+                XElement xEle = XElement.Load("XmlData.xml");
+                var current = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(rowNr);
+                current.ReplaceNodes(value);
+                xEle.Save("XmlData.xml");
+            }
         }
 
 
-        public RowModel() {
-            Spot0 = 7;
-            Spot1 = 7;
-            Spot2 = 7;
-            Spot3 = 7;
-            backgroundColor = "DarkGray";
-            currentRow = false;
+        public RowModel(bool willBeLoadedLater) {
+            if (!willBeLoadedLater)
+            { 
+                Spot0 = 7;
+                Spot1 = 7;
+                Spot2 = 7;
+                Spot3 = 7;
+                currentRow = false;
+            }
         }
 
         protected void OnPropertyChanged(string name)

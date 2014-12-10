@@ -76,11 +76,28 @@ namespace tddd43 {
         }
 
         public SolutionModel() {
+        }
+
+        public void CreateSolution()
+        {
             Random rnd = new Random();
             internalSolution[0] = rnd.Next(6);
             internalSolution[1] = rnd.Next(6);
             internalSolution[2] = rnd.Next(6);
             internalSolution[3] = rnd.Next(6);
+            Spot0 = 6;
+            Spot1 = 6;
+            Spot2 = 6;
+            Spot3 = 6;
+        }
+
+        public void LoadSolution(XElement xEle)
+        {
+            var solutionData = xEle.Descendants("Solution");
+            internalSolution[0] = Convert.ToInt32(solutionData.Descendants("Spot0").First().Value);
+            internalSolution[1] = Convert.ToInt32(solutionData.Descendants("Spot1").First().Value);
+            internalSolution[2] = Convert.ToInt32(solutionData.Descendants("Spot2").First().Value);
+            internalSolution[3] = Convert.ToInt32(solutionData.Descendants("Spot3").First().Value);
             Spot0 = 6;
             Spot1 = 6;
             Spot2 = 6;

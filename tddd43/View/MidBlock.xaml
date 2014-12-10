@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:tddd43"  
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="200">
-    <Grid Background="{Binding BackgroundColor, Converter={StaticResource ConverterStringToBrush}}">
+    <Grid Background="{Binding CurrentRow, Converter={StaticResource BoolToBrush}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>

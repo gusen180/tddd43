@@ -43,25 +43,25 @@ namespace tddd43
                     {
                         if (dataString == Brushes.Blue.ToString())
                         {
-                            Game.ChangeColor(ellipse.Uid, 0);
+                            Game.UpdateRowModel(ellipse.Uid, 0);
                         }
                         else if (dataString == Brushes.Yellow.ToString()) {
-                            Game.ChangeColor(ellipse.Uid, 1);
+                            Game.UpdateRowModel(ellipse.Uid, 1);
                         }
                         else if (dataString == Brushes.Green.ToString())
                         {
-                            Game.ChangeColor(ellipse.Uid, 2);
+                            Game.UpdateRowModel(ellipse.Uid, 2);
                         }
                         else if (dataString == Brushes.Purple.ToString())
                         {
-                            Game.ChangeColor(ellipse.Uid, 3);
+                            Game.UpdateRowModel(ellipse.Uid, 3);
                         }
                         else if (dataString == Brushes.Aqua.ToString())
                         {
-                            Game.ChangeColor(ellipse.Uid, 4);
+                            Game.UpdateRowModel(ellipse.Uid, 4);
                         }
                         else if (dataString == Brushes.Red.ToString()) {
-                            Game.ChangeColor(ellipse.Uid, 5);
+                            Game.UpdateRowModel(ellipse.Uid, 5);
                         }
                     }
                 }

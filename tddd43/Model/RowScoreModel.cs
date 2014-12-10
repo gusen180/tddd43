@@ -70,11 +70,14 @@ namespace tddd43 {
             }
         }
 
-        public RowScoreModel() {
-            Spot0 = 8;
-            Spot1 = 8;
-            Spot2 = 8;
-            Spot3 = 8;
+        public RowScoreModel(bool willBeLoadedLater) {
+            if (!willBeLoadedLater)
+            {
+                Spot0 = 8;
+                Spot1 = 8;
+                Spot2 = 8;
+                Spot3 = 8;
+            }
         }
 
         public void ChangeValue(int index, int value) {

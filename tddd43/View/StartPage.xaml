@@ -10,6 +10,6 @@
     <StackPanel>
         <Button Click="StartNewGameButton">Start New Game</Button>
         <Button Click="StartNewAIGameButton">Start New AI Game</Button>
-        <Button>Load Game</Button>
+        <Button Click="LoadGameButton">Load Game</Button>
     </StackPanel>
 </Page>

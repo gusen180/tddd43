@@ -76,11 +76,8 @@ C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\View\StartPage.g.cs
 C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\View\GamePage.baml
 C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\View\GamePage.g.cs
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\bin\Debug\tddd43.exe.config
-C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.exe
-C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.pdb
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\bin\Debug\tddd43.exe
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\bin\Debug\tddd43.pdb
-C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.csprojResolveAssemblyReference.cache
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\View\GamePage.baml
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\View\LeftBlock.baml
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\View\MainWindow.baml
@@ -105,3 +102,5 @@ C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tdd
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.g.resources
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.Properties.Resources.resources
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.csproj.GenerateResource.Cache
+C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.exe
+C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.pdb

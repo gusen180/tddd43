@@ -35,12 +35,16 @@ namespace tddd43
 
         public void GoToGamePage()
         {
-            MyFrame.Navigate(new GamePage(false));
+            MyFrame.Navigate(new GamePage(false, false));
         }
 
         public void GoToGamePageAi()
         {
-            MyFrame.Navigate(new GamePage(true));
+            MyFrame.Navigate(new GamePage(true, false));
+        }
+        public void GoToGamePageLoad()
+        {
+            MyFrame.Navigate(new GamePage(false, true));
         }
     }
 }

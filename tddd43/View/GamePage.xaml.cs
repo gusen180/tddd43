@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using tddd43.ViewModel;
 
 namespace tddd43.View {
@@ -20,11 +21,12 @@ namespace tddd43.View {
     /// </summary>
     public partial class GamePage : Page {
         private static bool ai;
+        private static bool load;
 
-        public GamePage(bool aiPlayer) {
+        public GamePage(bool aiPlayer, bool loadGame) {
             InitializeComponent();
             ai = aiPlayer;
-
+            load = loadGame;
 
             RowModel[] rowModelArray = new RowModel[10];
             RowScoreModel[] rowScoreModelArray = new RowScoreModel[10];
@@ -36,10 +38,9 @@ namespace tddd43.View {
             topMidBlock.Margin = new System.Windows.Thickness { Top = 4, Bottom = 4 };
             MasterMindLeft.Children.Add(topMidBlock);
 
-
             for (int y = 1; y < 11; y++) {
                 MidBlock midBlock = new MidBlock();
-                rowModelArray[((11 - y) % 11) - 1] = new RowModel();
+                rowModelArray[((11 - y) % 11) - 1] = new RowModel(load);
                 midBlock.DataContext = rowModelArray[((11 - y) % 11) - 1];
                 Grid.SetRow(midBlock, y);
                 Grid.SetColumn(midBlock, 2);
@@ -68,7 +69,7 @@ namespace tddd43.View {
                 MasterMindLeft.Children.Add(textblock);
 
                 RightBlock rightBlock = new RightBlock();
-                rowScoreModelArray[((11 - y) % 11) - 1] = new RowScoreModel();
+                rowScoreModelArray[((11 - y) % 11) - 1] = new RowScoreModel(load);
                 rightBlock.DataContext = rowScoreModelArray[((11 - y) % 11) - 1];
                 Grid.SetRow(rightBlock, y);
                 Grid.SetColumn(rightBlock, 3);
@@ -83,10 +84,10 @@ namespace tddd43.View {
             MasterMindRight.Children.Add(colorPalette);
 
             //Create game and ai
-            new Game(rowModelArray, rowScoreModelArray, (SolutionModel)topMidBlock.DataContext);
-            if (ai)
+            new Game(rowModelArray, rowScoreModelArray, (SolutionModel)topMidBlock.DataContext, load);
+            if (ai || load)
             {
-                new AI();
+                new AI(load);
             }
         }
 

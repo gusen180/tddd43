@@ -36,5 +36,12 @@ namespace tddd43.View {
             if (mainWnd != null)
                 mainWnd.GoToGamePageAi();
         }
+
+        private void LoadGameButton(object sender, RoutedEventArgs e)
+        {
+            var mainWnd = Application.Current.MainWindow as MainWindow;
+            if (mainWnd != null)
+                mainWnd.GoToGamePageLoad();
+        }
     }
 }
