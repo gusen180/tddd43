@@ -55,7 +55,6 @@ namespace tddd43.ViewModel
                 new AiXml(possibilities);
                 possibilities.RemoveAt(24);
             }
-            NextAIMove();
         }
 
         private static Boolean CorrectSpotAndColor(int[] possible, int spot)

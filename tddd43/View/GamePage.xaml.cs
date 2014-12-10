@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,9 +86,14 @@ namespace tddd43.View {
 
             //Create game and ai
             new Game(rowModelArray, rowScoreModelArray, (SolutionModel)topMidBlock.DataContext, load);
-            if (ai || load)
+            if (ai || (load && File.Exists("AiXml.xml")))
             {
                 new AI(load);
+                ai = true;
+            }
+            else if (File.Exists("AiXml.xml"))
+            {
+                File.Delete("AiXml.xml");
             }
         }
 
@@ -96,7 +102,8 @@ namespace tddd43.View {
             {
                 AI.NextAIMove();
             }
-            else { 
+            else 
+            { 
                 Game.CheckGuess();
             }
         }
