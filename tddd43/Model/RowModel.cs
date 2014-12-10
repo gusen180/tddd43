@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Xml.Linq;
+using tddd43.ViewModel;
 
 namespace tddd43 {
     class RowModel : INotifyPropertyChanged {
@@ -25,11 +26,10 @@ namespace tddd43 {
         public int Spot0
         {
             get { return rowArray[0]; }
-            set { rowArray[0] = value; OnPropertyChanged("spot0");
-            XElement xEle = XElement.Load("XmlData.xml");
-            var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot0").ElementAt(rowNr);
-            spot.ReplaceNodes(value);
-            xEle.Save("XmlData.xml");
+            set
+            {
+                rowArray[0] = value; OnPropertyChanged("spot0");
+                Game.UpdateXmlInt("row", "Spot0", value);
             }
         }
         
@@ -38,10 +38,7 @@ namespace tddd43 {
         {
             get { return rowArray[1]; }
             set { rowArray[1] = value; OnPropertyChanged("spot1");
-            XElement xEle = XElement.Load("XmlData.xml");
-            var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot1").ElementAt(rowNr);
-            spot.ReplaceNodes(value);
-            xEle.Save("XmlData.xml");
+            Game.UpdateXmlInt("row", "Spot1", value);
             }
         }
 
@@ -49,11 +46,10 @@ namespace tddd43 {
         public int Spot2
         {
             get { return rowArray[2]; }
-            set { rowArray[2] = value; OnPropertyChanged("spot2");
-            XElement xEle = XElement.Load("XmlData.xml");
-            var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot2").ElementAt(rowNr);
-            spot.ReplaceNodes(value);
-            xEle.Save("XmlData.xml");
+            set
+            {
+                rowArray[2] = value; OnPropertyChanged("spot2");
+                Game.UpdateXmlInt("row", "Spot2", value);
             }
         }
 
@@ -61,11 +57,10 @@ namespace tddd43 {
         public int Spot3
         {
             get { return rowArray[3]; }
-            set { rowArray[3] = value; OnPropertyChanged("spot3");
-            XElement xEle = XElement.Load("XmlData.xml");
-            var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot3").ElementAt(rowNr);
-            spot.ReplaceNodes(value);
-            xEle.Save("XmlData.xml");
+            set
+            {
+                rowArray[3] = value; OnPropertyChanged("spot3");
+                Game.UpdateXmlInt("row", "Spot3", value);
             }
         }
 
@@ -76,10 +71,7 @@ namespace tddd43 {
             set
             {
                 currentRow = value; OnPropertyChanged("currentRow");
-                XElement xEle = XElement.Load("XmlData.xml");
-                var current = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(rowNr);
-                current.ReplaceNodes(value);
-                xEle.Save("XmlData.xml");
+                Game.UpdateXmlBool(value);
             }
         }
 

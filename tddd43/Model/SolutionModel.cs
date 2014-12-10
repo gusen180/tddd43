@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Xml.Linq;
+using tddd43.ViewModel;
 
 namespace tddd43 {
     class SolutionModel : INotifyPropertyChanged {
@@ -29,10 +30,7 @@ namespace tddd43 {
             set
             {
                 solution[0] = value; OnPropertyChanged("spot0");
-                XElement xEle = XElement.Load("XmlData.xml");
-                var spot = xEle.Descendants("Solution").Descendants("Spot0").ElementAt(0);
-                spot.ReplaceNodes(internalSolution[0]);
-                xEle.Save("XmlData.xml");
+                Game.UpdateXmlInt("solution", "Spot0", internalSolution[0]);
             }
         }
 
@@ -42,10 +40,7 @@ namespace tddd43 {
             set
             {
                 solution[1] = value; OnPropertyChanged("spot1");
-                XElement xEle = XElement.Load("XmlData.xml");
-                var spot = xEle.Descendants("Solution").Descendants("Spot1").ElementAt(0);
-                spot.ReplaceNodes(internalSolution[1]);
-                xEle.Save("XmlData.xml");
+                Game.UpdateXmlInt("solution", "Spot1", internalSolution[1]);
             }
         }
 
@@ -55,10 +50,7 @@ namespace tddd43 {
             set
             {
                 solution[2] = value; OnPropertyChanged("spot2");
-                XElement xEle = XElement.Load("XmlData.xml");
-                var spot = xEle.Descendants("Solution").Descendants("Spot2").ElementAt(0);
-                spot.ReplaceNodes(internalSolution[2]);
-                xEle.Save("XmlData.xml");
+                Game.UpdateXmlInt("solution", "Spot2", internalSolution[2]);
             }
         }
 
@@ -68,10 +60,7 @@ namespace tddd43 {
             set
             {
                 solution[3] = value; OnPropertyChanged("spot3");
-                XElement xEle = XElement.Load("XmlData.xml");
-                var spot = xEle.Descendants("Solution").Descendants("Spot3").ElementAt(0);
-                spot.ReplaceNodes(internalSolution[3]);
-                xEle.Save("XmlData.xml");
+                Game.UpdateXmlInt("solution", "Spot3", internalSolution[3]);
             }
         }
 

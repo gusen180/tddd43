@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Xml.Linq;
+using tddd43.ViewModel;
 
 namespace tddd43 {
     class RowScoreModel : INotifyPropertyChanged {
@@ -25,22 +26,20 @@ namespace tddd43 {
         public int Spot0
         {
             get { return rowScoreArray[0]; }
-            set { rowScoreArray[0] = value; OnPropertyChanged("spot0");
-            XElement xEle = XElement.Load("XmlData.xml");
-            var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Score0").ElementAt(rowNr);
-            spot.ReplaceNodes(value);
-            xEle.Save("XmlData.xml");
+            set
+            {
+                rowScoreArray[0] = value; OnPropertyChanged("spot0");
+                Game.UpdateXmlInt("score", "Score0", value);
             }
         }
 
         public int Spot1
         {
             get { return rowScoreArray[1]; }
-            set { rowScoreArray[1] = value; OnPropertyChanged("spot1");
-            XElement xEle = XElement.Load("XmlData.xml");
-            var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Score1").ElementAt(rowNr);
-            spot.ReplaceNodes(value);
-            xEle.Save("XmlData.xml");
+            set
+            {
+                rowScoreArray[1] = value; OnPropertyChanged("spot1");
+                Game.UpdateXmlInt("score", "Score1", value);
             }
         }
 
@@ -50,10 +49,7 @@ namespace tddd43 {
             set
             {
                 rowScoreArray[2] = value; OnPropertyChanged("spot2");
-                XElement xEle = XElement.Load("XmlData.xml");
-                var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Score2").ElementAt(rowNr);
-                spot.ReplaceNodes(value);
-                xEle.Save("XmlData.xml");
+                Game.UpdateXmlInt("score", "Score2", value);
             }
         }
 
@@ -63,10 +59,7 @@ namespace tddd43 {
             set
             {
                 rowScoreArray[3] = value; OnPropertyChanged("spot3");
-                XElement xEle = XElement.Load("XmlData.xml");
-                var spot = xEle.Descendants("Rows").Descendants("Row").Descendants("Score3").ElementAt(rowNr);
-                spot.ReplaceNodes(value);
-                xEle.Save("XmlData.xml");
+                Game.UpdateXmlInt("score", "Score3", value);
             }
         }
 

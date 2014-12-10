@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace tddd43.ViewModel
         public static RowModel[] rowModelArray;
         public static RowScoreModel[] rowScoreModelArray;
         public static SolutionModel solutionModel;
+        public static FileSystemWatcher watcher;
 
 
         public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution, bool loadGame = false)
@@ -43,6 +45,52 @@ namespace tddd43.ViewModel
                 currentRow = 0;
                 rowModelArray[currentRow].CurrentRow = true;
             }
+
+            watcher = new FileSystemWatcher();
+            watcher.Path = System.Environment.CurrentDirectory;
+            watcher.NotifyFilter = NotifyFilters.LastAccess;
+            watcher.Filter = "XmlData.xml";
+            watcher.Changed += new FileSystemEventHandler(OnChanged);
+            watcher.EnableRaisingEvents = true;
+        }
+
+        private void OnChanged(object sender, FileSystemEventArgs e)
+        {
+            Console.WriteLine("OnChnaged");
+            LoadFromXml();
+        }
+
+        public static void UpdateXmlInt(string type, string spot, int updateValue)
+        {
+            watcher.EnableRaisingEvents = false;
+            XElement xEle = XElement.Load("XmlData.xml");
+            switch (type)
+            {
+                case "row":
+                    var spotToUpdate = xEle.Descendants("Rows").Descendants("Row").Descendants(spot).ElementAt(currentRow);
+                    spotToUpdate.ReplaceNodes(updateValue);
+                    break;
+                case "score":
+                    var scoreToUpdate = xEle.Descendants("Rows").Descendants("Row").Descendants(spot).ElementAt(currentRow);
+                    scoreToUpdate.ReplaceNodes(updateValue);
+                    break;
+                case "solution":
+                    var solutionToUpdate = xEle.Descendants("Solution").Descendants(spot).ElementAt(0);
+                    solutionToUpdate.ReplaceNodes(updateValue);
+                    break;
+                default:
+                    break;
+            }
+            xEle.Save("XmlData.xml");
+            watcher.EnableRaisingEvents = true;
+        }
+
+        public static void UpdateXmlBool(bool updateValue)
+        {
+            XElement xEle = XElement.Load("XmlData.xml");
+            var spotToUpdate = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(currentRow);
+            spotToUpdate.ReplaceNodes(updateValue);
+            xEle.Save("XmlData.xml");
         }
 
         public static void LoadFromXml()
