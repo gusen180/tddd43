@@ -22,8 +22,9 @@ namespace tddd43.ViewModel
         public static RowScoreModel[] rowScoreModelArray;
         public static SolutionModel solutionModel;
         public static FileSystemWatcher watcher;
-        public static bool enableChange = true;
+        public static bool enableChange;
         public static DateTime lastRead = DateTime.MinValue;
+        public static Timer aTimer;
 
 
         public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution, bool loadGame = false)
@@ -45,10 +46,11 @@ namespace tddd43.ViewModel
             watcher.Filter = "XmlData.xml";
             watcher.Changed += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = false;
+            enableChange = true;
 
             if (!loadGame)
             {
-                new XmlHelper();
+                new GameXml();
                 solutionModel.CreateSolution();
                 updateSolutionXml();
                 currentRow = 0;
@@ -56,7 +58,8 @@ namespace tddd43.ViewModel
             }
             else {
                 LoadFromXml();
-            } 
+            }
+            enableChange = true;
             watcher.EnableRaisingEvents = true;
         }
 
@@ -83,7 +86,7 @@ namespace tddd43.ViewModel
         {
             XElement xEle = XElement.Load("XmlData.xml");
             var rowData = xEle.Descendants("Rows").Descendants("Row");
-            for (int i = 0; i < 10; i++ )
+            for (int i = 0; i < 10; i++)
             {
                 rowModelArray[i].CurrentRow = Convert.ToBoolean(rowData.Descendants("CurrentRow").ElementAt(i).Value);
                 if (rowModelArray[i].CurrentRow)
@@ -153,7 +156,8 @@ namespace tddd43.ViewModel
 
             var notCurrent = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(currentRow);
             notCurrent.ReplaceNodes(false);
-            if (!finished) {
+            if (!finished)
+            {
                 var current = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(currentRow + 1);
                 current.ReplaceNodes(true);
             }

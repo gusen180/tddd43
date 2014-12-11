@@ -9,44 +9,44 @@ namespace tddd43
 {
     class ColorPaletteModel
     {
-        private string blue;
+        private int blue;
 
-        public string Blue
+        public int Blue
         {
             get { return blue; }
             set { blue = value; }
         }
-        private string red;
+        private int red;
 
-        public string Red
+        public int Red
         {
             get { return red; }
             set { red = value; }
         }
-        private string green;
+        private int green;
 
-        public string Green
+        public int Green
         {
             get { return green; }
             set { green = value; }
         }
-        private string purple;
+        private int purple;
 
-        public string Purple
+        public int Purple
         {
             get { return purple; }
             set { purple = value; }
         }
-        private string aqua;
+        private int aqua;
 
-        public string Aqua
+        public int Aqua
         {
             get { return aqua; }
             set { aqua = value; }
         }
-        private string yellow;
+        private int yellow;
 
-        public string Yellow
+        public int Yellow
         {
             get { return yellow; }
             set { yellow = value; }
@@ -55,12 +55,12 @@ namespace tddd43
 
         public ColorPaletteModel()
         {
-            Blue = "Blue";
-            Red = "Red";
-            Green = "Green";
-            Purple = "Purple";
-            Aqua = "Aqua";
-            Yellow = "Yellow";
+            Blue = 0;
+            Yellow = 1;
+            Green = 2;
+            Purple = 3;
+            Aqua = 4;
+            Red = 5;
         }
 
     }

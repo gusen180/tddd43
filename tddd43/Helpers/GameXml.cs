@@ -9,9 +9,9 @@ using System.Xml.Linq;
 
 namespace tddd43.Helpers
 {
-    class XmlHelper
+    class GameXml
     {
-        public XmlHelper()
+        public GameXml()
         {
             XNamespace empNM = "urn:lst-emp:emp";
 
