@@ -21,6 +21,7 @@ namespace tddd43.ViewModel
         public static RowScoreModel[] rowScoreModelArray;
         public static SolutionModel solutionModel;
         public static FileSystemWatcher watcher;
+        public static bool enableChange;
 
 
         public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution, bool loadGame = false)
@@ -34,86 +35,73 @@ namespace tddd43.ViewModel
                 rowModelArray[i].RowNr = i;
                 rowScoreModelArray[i].RowNr = i;
             }
-            if (loadGame)
-            {
-                LoadFromXml();
-            }
-            else
-            {
-                new XmlHelper();
-                solutionModel.CreateSolution();
-                currentRow = 0;
-                rowModelArray[currentRow].CurrentRow = true;
-            }
+            //if (loadGame)
+            //{
+            //    LoadFromXml();
+            //}
+            //else
+            //{
+            //    new XmlHelper();
+            //    solutionModel.CreateSolution();
+            //    currentRow = 0;
+            //    rowModelArray[currentRow].CurrentRow = true;
+            //}
+
 
             watcher = new FileSystemWatcher();
             watcher.Path = System.Environment.CurrentDirectory;
-            watcher.NotifyFilter = NotifyFilters.LastAccess;
+            watcher.NotifyFilter = NotifyFilters.LastWrite;
             watcher.Filter = "XmlData.xml";
             watcher.Changed += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = true;
+            enableChange = false;
+
+            if (!loadGame)
+            {
+                solutionModel.CreateSolution();
+                updateSolutionXml();
+                currentRow = 0;
+                rowModelArray[currentRow].CurrentRow = true;
+            }
+            else {
+                LoadFromXml();
+            }
         }
 
         private void OnChanged(object sender, FileSystemEventArgs e)
         {
-            Console.WriteLine("OnChnaged");
-            LoadFromXml();
-        }
-
-        public static void UpdateXmlInt(string type, string spot, int updateValue)
-        {
-            watcher.EnableRaisingEvents = false;
-            XElement xEle = XElement.Load("XmlData.xml");
-            switch (type)
-            {
-                case "row":
-                    var spotToUpdate = xEle.Descendants("Rows").Descendants("Row").Descendants(spot).ElementAt(currentRow);
-                    spotToUpdate.ReplaceNodes(updateValue);
-                    break;
-                case "score":
-                    var scoreToUpdate = xEle.Descendants("Rows").Descendants("Row").Descendants(spot).ElementAt(currentRow);
-                    scoreToUpdate.ReplaceNodes(updateValue);
-                    break;
-                case "solution":
-                    var solutionToUpdate = xEle.Descendants("Solution").Descendants(spot).ElementAt(0);
-                    solutionToUpdate.ReplaceNodes(updateValue);
-                    break;
-                default:
-                    break;
-            }
-            xEle.Save("XmlData.xml");
-            watcher.EnableRaisingEvents = true;
-        }
-
-        public static void UpdateXmlBool(bool updateValue)
-        {
-            XElement xEle = XElement.Load("XmlData.xml");
-            var spotToUpdate = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(currentRow);
-            spotToUpdate.ReplaceNodes(updateValue);
-            xEle.Save("XmlData.xml");
+            if(enableChange)
+                Console.WriteLine("OnChanged");
+            //LoadFromXml();
         }
 
         public static void LoadFromXml()
         {
+            enableChange = false;
             XElement xEle = XElement.Load("XmlData.xml");
             var rowData = xEle.Descendants("Rows").Descendants("Row");
             for (int i = 0; i < 10; i++ )
             {
-                rowModelArray[i].CurrentRow = Convert.ToBoolean(rowData.Descendants("CurrentRow").ElementAt(rowModelArray[i].RowNr).Value);
+                rowModelArray[i].CurrentRow = Convert.ToBoolean(rowData.Descendants("CurrentRow").ElementAt(i).Value);
                 if (rowModelArray[i].CurrentRow)
                 {
-                    currentRow = Convert.ToInt32(rowData.Descendants("RowNr").ElementAt(rowModelArray[i].RowNr).Value);
+                    currentRow = Convert.ToInt32(rowData.Descendants("RowNr").ElementAt(i).Value);
                 }
-                rowModelArray[i].Spot0 = Convert.ToInt32(rowData.Descendants("Spot0").ElementAt(rowModelArray[i].RowNr).Value);
-                rowModelArray[i].Spot1 = Convert.ToInt32(rowData.Descendants("Spot1").ElementAt(rowModelArray[i].RowNr).Value);
-                rowModelArray[i].Spot2 = Convert.ToInt32(rowData.Descendants("Spot2").ElementAt(rowModelArray[i].RowNr).Value);
-                rowModelArray[i].Spot3 = Convert.ToInt32(rowData.Descendants("Spot3").ElementAt(rowModelArray[i].RowNr).Value);
-                rowScoreModelArray[i].Spot0 = Convert.ToInt32(rowData.Descendants("Score0").ElementAt(rowModelArray[i].RowNr).Value);
-                rowScoreModelArray[i].Spot1 = Convert.ToInt32(rowData.Descendants("Score1").ElementAt(rowModelArray[i].RowNr).Value);
-                rowScoreModelArray[i].Spot2 = Convert.ToInt32(rowData.Descendants("Score2").ElementAt(rowModelArray[i].RowNr).Value);
-                rowScoreModelArray[i].Spot3 = Convert.ToInt32(rowData.Descendants("Score3").ElementAt(rowModelArray[i].RowNr).Value);
+                rowModelArray[i].Spot0 = Convert.ToInt32(rowData.Descendants("Spot0").ElementAt(i).Value);
+                rowModelArray[i].Spot1 = Convert.ToInt32(rowData.Descendants("Spot1").ElementAt(i).Value);
+                rowModelArray[i].Spot2 = Convert.ToInt32(rowData.Descendants("Spot2").ElementAt(i).Value);
+                rowModelArray[i].Spot3 = Convert.ToInt32(rowData.Descendants("Spot3").ElementAt(i).Value);
+                rowScoreModelArray[i].Spot0 = Convert.ToInt32(rowData.Descendants("Score0").ElementAt(i).Value);
+                rowScoreModelArray[i].Spot1 = Convert.ToInt32(rowData.Descendants("Score1").ElementAt(i).Value);
+                rowScoreModelArray[i].Spot2 = Convert.ToInt32(rowData.Descendants("Score2").ElementAt(i).Value);
+                rowScoreModelArray[i].Spot3 = Convert.ToInt32(rowData.Descendants("Score3").ElementAt(i).Value);
             }
-            solutionModel.LoadSolution(xEle);
+            var solutionData = xEle.Descendants("Solution");
+            solutionModel.internalSolution[0] = Convert.ToInt32(solutionData.Descendants("Spot0").First().Value);
+            solutionModel.internalSolution[1] = Convert.ToInt32(solutionData.Descendants("Spot1").First().Value);
+            solutionModel.internalSolution[2] = Convert.ToInt32(solutionData.Descendants("Spot2").First().Value);
+            solutionModel.internalSolution[3] = Convert.ToInt32(solutionData.Descendants("Spot3").First().Value);
+            enableChange = true;
         }
 
 
@@ -136,6 +124,58 @@ namespace tddd43.ViewModel
                 default:
                     break;
             }
+        }
+
+        public static void updateRowXml(bool finished)
+        {
+            enableChange = false;
+            XElement xEle = XElement.Load("XmlData.xml");
+
+            var spot0 = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot0").ElementAt(currentRow);
+            spot0.ReplaceNodes(rowModelArray[currentRow].Spot0);
+            var spot1 = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot1").ElementAt(currentRow);
+            spot1.ReplaceNodes(rowModelArray[currentRow].Spot1);
+            var spot2 = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot2").ElementAt(currentRow);
+            spot2.ReplaceNodes(rowModelArray[currentRow].Spot2);
+            var spot3 = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot3").ElementAt(currentRow);
+            spot3.ReplaceNodes(rowModelArray[currentRow].Spot3);
+
+            var score0 = xEle.Descendants("Rows").Descendants("Row").Descendants("Score0").ElementAt(currentRow);
+            score0.ReplaceNodes(rowScoreModelArray[currentRow].Spot0);
+            var score1 = xEle.Descendants("Rows").Descendants("Row").Descendants("Score1").ElementAt(currentRow);
+            score1.ReplaceNodes(rowScoreModelArray[currentRow].Spot1);
+            var score2 = xEle.Descendants("Rows").Descendants("Row").Descendants("Score2").ElementAt(currentRow);
+            score2.ReplaceNodes(rowScoreModelArray[currentRow].Spot2);
+            var score3 = xEle.Descendants("Rows").Descendants("Row").Descendants("Score3").ElementAt(currentRow);
+            score3.ReplaceNodes(rowScoreModelArray[currentRow].Spot3);
+
+            var notCurrent = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(currentRow);
+            notCurrent.ReplaceNodes(false);
+            if (!finished) {
+                var current = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(currentRow + 1);
+                current.ReplaceNodes(true);
+            }
+
+            xEle.Save("XmlData.xml");
+            enableChange = true;
+        }
+
+        public static void updateSolutionXml()
+        {
+            enableChange = false;
+            XElement xEle = XElement.Load("XmlData.xml");
+
+            var spot0 = xEle.Descendants("Solution").Descendants("Spot0").ElementAt(0);
+            spot0.ReplaceNodes(solutionModel.internalSolution[0]);
+            var spot1 = xEle.Descendants("Solution").Descendants("Spot1").ElementAt(0);
+            spot1.ReplaceNodes(solutionModel.internalSolution[1]);
+            var spot2 = xEle.Descendants("Solution").Descendants("Spot2").ElementAt(0);
+            spot2.ReplaceNodes(solutionModel.internalSolution[2]);
+            var spot3 = xEle.Descendants("Solution").Descendants("Spot3").ElementAt(0);
+            spot3.ReplaceNodes(solutionModel.internalSolution[3]);
+
+            xEle.Save("XmlData.xml");
+            enableChange = true;
         }
 
         private static Boolean CorrectSpotAndColor(int spot)
@@ -198,9 +238,11 @@ namespace tddd43.ViewModel
                 solutionModel.Spot2 = solutionModel.internalSolution[2];
                 solutionModel.Spot3 = solutionModel.internalSolution[3];
                 rowModelArray[currentRow].CurrentRow = false;
+                updateRowXml(true);
             }
             else
             {
+                updateRowXml(false);
                 rowModelArray[currentRow].CurrentRow = false;
                 currentRow = currentRow + 1;
                 rowModelArray[currentRow].CurrentRow = true;

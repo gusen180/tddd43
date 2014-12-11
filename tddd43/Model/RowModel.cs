@@ -29,7 +29,6 @@ namespace tddd43 {
             set
             {
                 rowArray[0] = value; OnPropertyChanged("spot0");
-                Game.UpdateXmlInt("row", "Spot0", value);
             }
         }
         
@@ -38,7 +37,6 @@ namespace tddd43 {
         {
             get { return rowArray[1]; }
             set { rowArray[1] = value; OnPropertyChanged("spot1");
-            Game.UpdateXmlInt("row", "Spot1", value);
             }
         }
 
@@ -49,7 +47,6 @@ namespace tddd43 {
             set
             {
                 rowArray[2] = value; OnPropertyChanged("spot2");
-                Game.UpdateXmlInt("row", "Spot2", value);
             }
         }
 
@@ -60,7 +57,6 @@ namespace tddd43 {
             set
             {
                 rowArray[3] = value; OnPropertyChanged("spot3");
-                Game.UpdateXmlInt("row", "Spot3", value);
             }
         }
 
@@ -71,20 +67,16 @@ namespace tddd43 {
             set
             {
                 currentRow = value; OnPropertyChanged("currentRow");
-                Game.UpdateXmlBool(value);
             }
         }
 
 
         public RowModel(bool willBeLoadedLater) {
-            if (!willBeLoadedLater)
-            { 
-                Spot0 = 7;
-                Spot1 = 7;
-                Spot2 = 7;
-                Spot3 = 7;
-                currentRow = false;
-            }
+            Spot0 = 7;
+            Spot1 = 7;
+            Spot2 = 7;
+            Spot3 = 7;
+            currentRow = false;
         }
 
         protected void OnPropertyChanged(string name)

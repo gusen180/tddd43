@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using tddd43.Helpers;
 using tddd43.ViewModel;
 
 namespace tddd43.View {
@@ -85,6 +86,10 @@ namespace tddd43.View {
             MasterMindRight.Children.Add(colorPalette);
 
             //Create game and ai
+            if (!load)
+            {
+                new XmlHelper();
+            }
             new Game(rowModelArray, rowScoreModelArray, (SolutionModel)topMidBlock.DataContext, load);
             if (ai || (load && File.Exists("AiXml.xml")))
             {

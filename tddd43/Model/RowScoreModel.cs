@@ -29,7 +29,6 @@ namespace tddd43 {
             set
             {
                 rowScoreArray[0] = value; OnPropertyChanged("spot0");
-                Game.UpdateXmlInt("score", "Score0", value);
             }
         }
 
@@ -39,7 +38,6 @@ namespace tddd43 {
             set
             {
                 rowScoreArray[1] = value; OnPropertyChanged("spot1");
-                Game.UpdateXmlInt("score", "Score1", value);
             }
         }
 
@@ -49,7 +47,6 @@ namespace tddd43 {
             set
             {
                 rowScoreArray[2] = value; OnPropertyChanged("spot2");
-                Game.UpdateXmlInt("score", "Score2", value);
             }
         }
 
@@ -59,18 +56,14 @@ namespace tddd43 {
             set
             {
                 rowScoreArray[3] = value; OnPropertyChanged("spot3");
-                Game.UpdateXmlInt("score", "Score3", value);
             }
         }
 
         public RowScoreModel(bool willBeLoadedLater) {
-            if (!willBeLoadedLater)
-            {
-                Spot0 = 8;
-                Spot1 = 8;
-                Spot2 = 8;
-                Spot3 = 8;
-            }
+            Spot0 = 8;
+            Spot1 = 8;
+            Spot2 = 8;
+            Spot3 = 8;
         }
 
         public void ChangeValue(int index, int value) {

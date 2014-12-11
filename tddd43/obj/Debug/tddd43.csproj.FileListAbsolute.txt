@@ -104,3 +104,4 @@ C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tdd
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.csproj.GenerateResource.Cache
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.exe
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.pdb
+C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.csprojResolveAssemblyReference.cache
