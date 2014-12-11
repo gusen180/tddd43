@@ -6,10 +6,27 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="StartPage">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="MasterMind" Background="Gray" FontSize="60" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
 
-    <StackPanel>
-        <Button Click="StartNewGameButton">Start New Game</Button>
-        <Button Click="StartNewAIGameButton">Start New AI Game</Button>
-        <Button Click="LoadGameButton">Load Game</Button>
-    </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1">
+                <StackPanel>
+                    <Button Click="StartNewGameButton">Start New Game</Button>
+                    <Button Click="StartNewAIGameButton">Start New AI Game</Button>
+                    <Button Click="LoadGameButton">Load Game</Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+         
+    </Grid>
 </Page>
