@@ -1,58 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Game>
   <Solution>
-    <Spot0>0</Spot0>
-    <Spot1>4</Spot1>
-    <Spot2>1</Spot2>
-    <Spot3>3</Spot3>
+    <Spot0>2</Spot0>
+    <Spot1>2</Spot1>
+    <Spot2>2</Spot2>
+    <Spot3>2</Spot3>
   </Solution>
   <Rows>
     <Row>
       <RowNr>0</RowNr>
-      <Spot0>0</Spot0>
-      <Spot1>0</Spot1>
-      <Spot2>5</Spot2>
-      <Spot3>5</Spot3>
-      <Score0>5</Score0>
+      <Spot0>7</Spot0>
+      <Spot1>7</Spot1>
+      <Spot2>7</Spot2>
+      <Spot3>7</Spot3>
+      <Score0>8</Score0>
+      <Score1>8</Score1>
+      <Score2>8</Score2>
+      <Score3>8</Score3>
+      <CurrentRow>true</CurrentRow>
+    </Row>
+    <Row>
+      <RowNr>1</RowNr>
+      <Spot0>7</Spot0>
+      <Spot1>7</Spot1>
+      <Spot2>7</Spot2>
+      <Spot3>7</Spot3>
+      <Score0>8</Score0>
       <Score1>8</Score1>
       <Score2>8</Score2>
       <Score3>8</Score3>
       <CurrentRow>false</CurrentRow>
     </Row>
     <Row>
-      <RowNr>1</RowNr>
-      <Spot0>0</Spot0>
-      <Spot1>1</Spot1>
-      <Spot2>4</Spot2>
-      <Spot3>4</Spot3>
-      <Score0>5</Score0>
-      <Score1>6</Score1>
-      <Score2>6</Score2>
+      <RowNr>2</RowNr>
+      <Spot0>7</Spot0>
+      <Spot1>7</Spot1>
+      <Spot2>7</Spot2>
+      <Spot3>7</Spot3>
+      <Score0>8</Score0>
+      <Score1>8</Score1>
+      <Score2>8</Score2>
       <Score3>8</Score3>
       <CurrentRow>false</CurrentRow>
     </Row>
     <Row>
-      <RowNr>2</RowNr>
-      <Spot0>0</Spot0>
-      <Spot1>4</Spot1>
-      <Spot2>3</Spot2>
-      <Spot3>1</Spot3>
-      <Score0>5</Score0>
-      <Score1>5</Score1>
-      <Score2>6</Score2>
-      <Score3>6</Score3>
-      <CurrentRow>false</CurrentRow>
-    </Row>
-    <Row>
       <RowNr>3</RowNr>
-      <Spot0>0</Spot0>
-      <Spot1>4</Spot1>
-      <Spot2>1</Spot2>
-      <Spot3>3</Spot3>
-      <Score0>5</Score0>
-      <Score1>5</Score1>
-      <Score2>5</Score2>
-      <Score3>5</Score3>
+      <Spot0>7</Spot0>
+      <Spot1>7</Spot1>
+      <Spot2>7</Spot2>
+      <Spot3>7</Spot3>
+      <Score0>8</Score0>
+      <Score1>8</Score1>
+      <Score2>8</Score2>
+      <Score3>8</Score3>
       <CurrentRow>false</CurrentRow>
     </Row>
     <Row>

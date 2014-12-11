@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +22,8 @@ namespace tddd43.ViewModel
         public static RowScoreModel[] rowScoreModelArray;
         public static SolutionModel solutionModel;
         public static FileSystemWatcher watcher;
-        public static bool enableChange;
+        public static bool enableChange = true;
+        public static DateTime lastRead = DateTime.MinValue;
 
 
         public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution, bool loadGame = false)
@@ -54,7 +56,6 @@ namespace tddd43.ViewModel
             watcher.Filter = "XmlData.xml";
             watcher.Changed += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = true;
-            enableChange = false;
 
             if (!loadGame)
             {
@@ -68,16 +69,27 @@ namespace tddd43.ViewModel
             }
         }
 
-        private void OnChanged(object sender, FileSystemEventArgs e)
-        {
-            if(enableChange)
-                Console.WriteLine("OnChanged");
+        private void OnChanged(object sender, FileSystemEventArgs e) {
+            try {
+                DateTime lastWriteTime = File.GetLastWriteTime("XmlData.xml");
+                if (enableChange && lastRead != lastWriteTime) {
+                    lastRead = lastWriteTime;
+                    enableChange = false;
+                    watcher.EnableRaisingEvents = false;
+                    Console.WriteLine("OnChanged");
+                    /* do my stuff once */
+                }
+            }
+
+            finally {
+                watcher.EnableRaisingEvents = true;
+                enableChange = true;
+            }
             //LoadFromXml();
         }
 
         public static void LoadFromXml()
         {
-            enableChange = false;
             XElement xEle = XElement.Load("XmlData.xml");
             var rowData = xEle.Descendants("Rows").Descendants("Row");
             for (int i = 0; i < 10; i++ )
@@ -101,7 +113,6 @@ namespace tddd43.ViewModel
             solutionModel.internalSolution[1] = Convert.ToInt32(solutionData.Descendants("Spot1").First().Value);
             solutionModel.internalSolution[2] = Convert.ToInt32(solutionData.Descendants("Spot2").First().Value);
             solutionModel.internalSolution[3] = Convert.ToInt32(solutionData.Descendants("Spot3").First().Value);
-            enableChange = true;
         }
 
 
@@ -128,7 +139,7 @@ namespace tddd43.ViewModel
 
         public static void updateRowXml(bool finished)
         {
-            enableChange = false;
+            watcher.EnableRaisingEvents = false;
             XElement xEle = XElement.Load("XmlData.xml");
 
             var spot0 = xEle.Descendants("Rows").Descendants("Row").Descendants("Spot0").ElementAt(currentRow);
@@ -155,14 +166,14 @@ namespace tddd43.ViewModel
                 var current = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(currentRow + 1);
                 current.ReplaceNodes(true);
             }
-
             xEle.Save("XmlData.xml");
-            enableChange = true;
+            Thread.Sleep(2000);
+            watcher.EnableRaisingEvents = true;
         }
 
         public static void updateSolutionXml()
         {
-            enableChange = false;
+            watcher.EnableRaisingEvents = false;
             XElement xEle = XElement.Load("XmlData.xml");
 
             var spot0 = xEle.Descendants("Solution").Descendants("Spot0").ElementAt(0);
@@ -175,7 +186,8 @@ namespace tddd43.ViewModel
             spot3.ReplaceNodes(solutionModel.internalSolution[3]);
 
             xEle.Save("XmlData.xml");
-            enableChange = true;
+            Thread.Sleep(2000);
+            watcher.EnableRaisingEvents = true;
         }
 
         private static Boolean CorrectSpotAndColor(int spot)
