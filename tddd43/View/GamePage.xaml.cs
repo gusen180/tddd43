@@ -86,10 +86,6 @@ namespace tddd43.View {
             MasterMindRight.Children.Add(colorPalette);
 
             //Create game and ai
-            if (!load)
-            {
-                new XmlHelper();
-            }
             new Game(rowModelArray, rowScoreModelArray, (SolutionModel)topMidBlock.DataContext, load);
             if (ai || (load && File.Exists("AiXml.xml")))
             {

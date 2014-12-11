@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\obj\Debug\
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\
 tddd43
 none
 false
 DEBUG;TRACE
-C:\Users\Gurra\Documents\GitHub\tddd43\tddd43\App.xaml
+C:\Users\Gurra\Desktop\tddd43\tddd43\App.xaml
 81168058106
 
 2856004276
 12-1401562060
 View\ColorPalette.xaml;View\GamePage.xaml;View\LeftBlock.xaml;View\MainWindow.xaml;View\MidBlock.xaml;View\RightBlock.xaml;View\StartPage.xaml;View\TopMidBlock.xaml;
 
-False
+True
 

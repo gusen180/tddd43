@@ -105,3 +105,33 @@ C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tdd
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.exe
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.pdb
 C:\Users\Gurra\Documents\Visual Studio 2013\Projects\tddd43Git\tddd43\tddd43\tddd43\obj\Debug\tddd43.csprojResolveAssemblyReference.cache
+C:\Users\Gurra\Desktop\tddd43\tddd43\bin\Debug\tddd43.exe.config
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\tddd43.exe
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\tddd43.pdb
+C:\Users\Gurra\Desktop\tddd43\tddd43\bin\Debug\tddd43.exe
+C:\Users\Gurra\Desktop\tddd43\tddd43\bin\Debug\tddd43.pdb
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\tddd43.csprojResolveAssemblyReference.cache
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\GamePage.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\LeftBlock.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\MainWindow.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\RightBlock.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\StartPage.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\TopMidBlock.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\ColorPalette.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\GamePage.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\LeftBlock.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\MainWindow.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\MidBlock.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\RightBlock.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\StartPage.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\TopMidBlock.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\App.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\tddd43_MarkupCompile.cache
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\tddd43_MarkupCompile.lref
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\App.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\ColorPalette.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\View\MidBlock.baml
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\tddd43.g.resources
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\tddd43.Properties.Resources.resources
+C:\Users\Gurra\Desktop\tddd43\tddd43\obj\Debug\tddd43.csproj.GenerateResource.Cache

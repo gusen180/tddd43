@@ -37,17 +37,6 @@ namespace tddd43.ViewModel
                 rowModelArray[i].RowNr = i;
                 rowScoreModelArray[i].RowNr = i;
             }
-            //if (loadGame)
-            //{
-            //    LoadFromXml();
-            //}
-            //else
-            //{
-            //    new XmlHelper();
-            //    solutionModel.CreateSolution();
-            //    currentRow = 0;
-            //    rowModelArray[currentRow].CurrentRow = true;
-            //}
 
 
             watcher = new FileSystemWatcher();
@@ -55,10 +44,11 @@ namespace tddd43.ViewModel
             watcher.NotifyFilter = NotifyFilters.LastWrite;
             watcher.Filter = "XmlData.xml";
             watcher.Changed += new FileSystemEventHandler(OnChanged);
-            watcher.EnableRaisingEvents = true;
+            watcher.EnableRaisingEvents = false;
 
             if (!loadGame)
             {
+                new XmlHelper();
                 solutionModel.CreateSolution();
                 updateSolutionXml();
                 currentRow = 0;
@@ -66,8 +56,10 @@ namespace tddd43.ViewModel
             }
             else {
                 LoadFromXml();
-            }
+            } 
+            watcher.EnableRaisingEvents = true;
         }
+
 
         private void OnChanged(object sender, FileSystemEventArgs e) {
             try {
@@ -77,7 +69,7 @@ namespace tddd43.ViewModel
                     enableChange = false;
                     watcher.EnableRaisingEvents = false;
                     Console.WriteLine("OnChanged");
-                    /* do my stuff once */
+                    //LoadFromXml();
                 }
             }
 
@@ -85,7 +77,6 @@ namespace tddd43.ViewModel
                 watcher.EnableRaisingEvents = true;
                 enableChange = true;
             }
-            //LoadFromXml();
         }
 
         public static void LoadFromXml()
@@ -167,7 +158,6 @@ namespace tddd43.ViewModel
                 current.ReplaceNodes(true);
             }
             xEle.Save("XmlData.xml");
-            Thread.Sleep(2000);
             watcher.EnableRaisingEvents = true;
         }
 
@@ -186,7 +176,6 @@ namespace tddd43.ViewModel
             spot3.ReplaceNodes(solutionModel.internalSolution[3]);
 
             xEle.Save("XmlData.xml");
-            Thread.Sleep(2000);
             watcher.EnableRaisingEvents = true;
         }
 
