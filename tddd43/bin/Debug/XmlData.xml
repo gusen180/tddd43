@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Game>
   <Solution>
-    <Spot0>1</Spot0>
-    <Spot1>1</Spot1>
-    <Spot2>4</Spot2>
+    <Spot0>5</Spot0>
+    <Spot1>3</Spot1>
+    <Spot2>1</Spot2>
     <Spot3>1</Spot3>
   </Solution>
   <Rows>
     <Row>
       <RowNr>0</RowNr>
-      <Spot0>7</Spot0>
-      <Spot1>7</Spot1>
-      <Spot2>7</Spot2>
-      <Spot3>0</Spot3>
-      <Score0>8</Score0>
+      <Spot0>0</Spot0>
+      <Spot1>0</Spot1>
+      <Spot2>5</Spot2>
+      <Spot3>5</Spot3>
+      <Score0>6</Score0>
       <Score1>8</Score1>
       <Score2>8</Score2>
       <Score3>8</Score3>
@@ -21,12 +21,12 @@
     </Row>
     <Row>
       <RowNr>1</RowNr>
-      <Spot0>7</Spot0>
-      <Spot1>7</Spot1>
-      <Spot2>7</Spot2>
+      <Spot0>1</Spot0>
+      <Spot1>1</Spot1>
+      <Spot2>4</Spot2>
       <Spot3>2</Spot3>
-      <Score0>8</Score0>
-      <Score1>8</Score1>
+      <Score0>6</Score0>
+      <Score1>6</Score1>
       <Score2>8</Score2>
       <Score3>8</Score3>
       <CurrentRow>false</CurrentRow>
@@ -36,12 +36,12 @@
       <Spot0>7</Spot0>
       <Spot1>7</Spot1>
       <Spot2>7</Spot2>
-      <Spot3>5</Spot3>
+      <Spot3>7</Spot3>
       <Score0>8</Score0>
       <Score1>8</Score1>
       <Score2>8</Score2>
       <Score3>8</Score3>
-      <CurrentRow>false</CurrentRow>
+      <CurrentRow>true</CurrentRow>
     </Row>
     <Row>
       <RowNr>3</RowNr>
@@ -60,8 +60,8 @@
       <Spot0>7</Spot0>
       <Spot1>7</Spot1>
       <Spot2>7</Spot2>
-      <Spot3>1</Spot3>
-      <Score0>5</Score0>
+      <Spot3>7</Spot3>
+      <Score0>8</Score0>
       <Score1>8</Score1>
       <Score2>8</Score2>
       <Score3>8</Score3>
@@ -72,7 +72,7 @@
       <Spot0>7</Spot0>
       <Spot1>7</Spot1>
       <Spot2>7</Spot2>
-      <Spot3>3</Spot3>
+      <Spot3>7</Spot3>
       <Score0>8</Score0>
       <Score1>8</Score1>
       <Score2>8</Score2>
@@ -82,22 +82,22 @@
     <Row>
       <RowNr>6</RowNr>
       <Spot0>7</Spot0>
-      <Spot1>1</Spot1>
-      <Spot2>1</Spot2>
+      <Spot1>7</Spot1>
+      <Spot2>7</Spot2>
       <Spot3>7</Spot3>
-      <Score0>5</Score0>
-      <Score1>6</Score1>
+      <Score0>8</Score0>
+      <Score1>8</Score1>
       <Score2>8</Score2>
       <Score3>8</Score3>
       <CurrentRow>false</CurrentRow>
     </Row>
     <Row>
       <RowNr>7</RowNr>
-      <Spot0>1</Spot0>
+      <Spot0>7</Spot0>
       <Spot1>7</Spot1>
       <Spot2>7</Spot2>
       <Spot3>7</Spot3>
-      <Score0>5</Score0>
+      <Score0>8</Score0>
       <Score1>8</Score1>
       <Score2>8</Score2>
       <Score3>8</Score3>
@@ -113,7 +113,7 @@
       <Score1>8</Score1>
       <Score2>8</Score2>
       <Score3>8</Score3>
-      <CurrentRow>true</CurrentRow>
+      <CurrentRow>false</CurrentRow>
     </Row>
     <Row>
       <RowNr>9</RowNr>

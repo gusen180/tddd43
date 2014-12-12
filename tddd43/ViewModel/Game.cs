@@ -63,6 +63,11 @@ namespace tddd43.ViewModel
             watcher.EnableRaisingEvents = true;
         }
 
+        public static void removeWatcher()
+        {
+            watcher.Dispose();
+        }
+
 
         private void OnChanged(object sender, FileSystemEventArgs e) {
             try {

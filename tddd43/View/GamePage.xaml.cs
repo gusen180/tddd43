@@ -24,11 +24,17 @@ namespace tddd43.View {
     public partial class GamePage : Page {
         private static bool ai;
         private static bool load;
+        private static Game game;
 
         public GamePage(bool aiPlayer, bool loadGame) {
             InitializeComponent();
             ai = aiPlayer;
             load = loadGame;
+
+            if (game != null)
+            {
+                Game.removeWatcher();
+            }
 
             RowModel[] rowModelArray = new RowModel[10];
             RowScoreModel[] rowScoreModelArray = new RowScoreModel[10];
@@ -86,7 +92,7 @@ namespace tddd43.View {
             MasterMindRight.Children.Add(colorPalette);
 
             //Create game and ai
-            new Game(rowModelArray, rowScoreModelArray, (SolutionModel)topMidBlock.DataContext, load);
+            game = new Game(rowModelArray, rowScoreModelArray, (SolutionModel)topMidBlock.DataContext, load);
             if (ai || (load && File.Exists("AiXml.xml")))
             {
                 new AI(load);
