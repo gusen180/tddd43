@@ -24,7 +24,6 @@ namespace tddd43.ViewModel
         public static FileSystemWatcher watcher;
         public static bool enableChange;
         public static DateTime lastRead = DateTime.MinValue;
-        //public static Timer aTimer;
 
 
         public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution, bool loadGame = false)
@@ -113,11 +112,13 @@ namespace tddd43.ViewModel
             solutionModel.internalSolution[2] = Convert.ToInt32(solutionData.Descendants("Spot2").First().Value);
             solutionModel.internalSolution[3] = Convert.ToInt32(solutionData.Descendants("Spot3").First().Value);
             solutionModel.Solved = Convert.ToBoolean(solutionData.Descendants("Solved").First().Value);
-            //if (solutionModel.Solved) {
-            //    for (int i = 0; i < 4; i++) {
-            //        solutionModel.solution[i] = solutionModel.internalSolution[i];
-            //    }
-            //}
+            if (solutionModel.Solved)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    solutionModel.solution[i] = solutionModel.internalSolution[i];
+                }
+            }
         }
 
 
@@ -126,7 +127,6 @@ namespace tddd43.ViewModel
             XElement xEle = XElement.Load("XmlData.xml");
 
             var row = xEle.Descendants("Rows").Descendants("Row");
-            //spot0.ReplaceNodes(rowModelArray[currentRow].Spot0);
             switch (spot)
             {
                 case "0":
@@ -185,6 +185,11 @@ namespace tddd43.ViewModel
             {
                 var current = xEle.Descendants("Rows").Descendants("Row").Descendants("CurrentRow").ElementAt(currentRow + 1);
                 current.ReplaceNodes(true);
+            }
+            else
+            {
+                var solved = xEle.Descendants("Solution").Descendants("Solved").ElementAt(0);
+                solved.ReplaceNodes(true);
             }
             xEle.Save("XmlData.xml");
             watcher.EnableRaisingEvents = true;
