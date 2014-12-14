@@ -24,7 +24,7 @@ namespace tddd43.ViewModel
         public static FileSystemWatcher watcher;
         public static bool enableChange;
         public static DateTime lastRead = DateTime.MinValue;
-        public static Timer aTimer;
+        //public static Timer aTimer;
 
 
         public Game(RowModel[] rowModels, RowScoreModel[] rowScoreModels, SolutionModel solution, bool loadGame = false)
@@ -77,7 +77,7 @@ namespace tddd43.ViewModel
                     enableChange = false;
                     watcher.EnableRaisingEvents = false;
                     Console.WriteLine("OnChanged");
-                    //LoadFromXml();
+                    LoadFromXml();
                 }
             }
 
@@ -112,28 +112,48 @@ namespace tddd43.ViewModel
             solutionModel.internalSolution[1] = Convert.ToInt32(solutionData.Descendants("Spot1").First().Value);
             solutionModel.internalSolution[2] = Convert.ToInt32(solutionData.Descendants("Spot2").First().Value);
             solutionModel.internalSolution[3] = Convert.ToInt32(solutionData.Descendants("Spot3").First().Value);
+            solutionModel.Solved = Convert.ToBoolean(solutionData.Descendants("Solved").First().Value);
+            //if (solutionModel.Solved) {
+            //    for (int i = 0; i < 4; i++) {
+            //        solutionModel.solution[i] = solutionModel.internalSolution[i];
+            //    }
+            //}
         }
 
 
-        public static void UpdateRowModel(string spot, int value)
-        {
+        public static void UpdateRowModel(string spot, int value) {
+            watcher.EnableRaisingEvents = false;
+            XElement xEle = XElement.Load("XmlData.xml");
+
+            var row = xEle.Descendants("Rows").Descendants("Row");
+            //spot0.ReplaceNodes(rowModelArray[currentRow].Spot0);
             switch (spot)
             {
                 case "0":
                     rowModelArray[currentRow].Spot0 = value;
+                    var spot0 = row.Descendants("Spot0").ElementAt(currentRow);
+                    spot0.ReplaceNodes(rowModelArray[currentRow].Spot0);
                     break;
                 case "1":
                     rowModelArray[currentRow].Spot1 = value;
+                    var spot1 = row.Descendants("Spot1").ElementAt(currentRow);
+                    spot1.ReplaceNodes(rowModelArray[currentRow].Spot1);
                     break;
                 case "2":
                     rowModelArray[currentRow].Spot2 = value;
+                    var spot2 = row.Descendants("Spot2").ElementAt(currentRow);
+                    spot2.ReplaceNodes(rowModelArray[currentRow].Spot2);
                     break;
                 case "3":
                     rowModelArray[currentRow].Spot3 = value;
+                    var spot3 = row.Descendants("Spot3").ElementAt(currentRow);
+                    spot3.ReplaceNodes(rowModelArray[currentRow].Spot3);
                     break;
                 default:
                     break;
             }
+            xEle.Save("XmlData.xml");
+            watcher.EnableRaisingEvents = true;
         }
 
         public static void updateRowXml(bool finished)

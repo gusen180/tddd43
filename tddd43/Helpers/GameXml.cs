@@ -19,6 +19,7 @@ namespace tddd43.Helpers
                         new XDeclaration("1.0", "UTF-16", null),
                         new XElement("Game",
                                 new XElement("Solution",
+                                    new XElement("Solved", false),
                                     new XElement("Spot0", 6),
                                     new XElement("Spot1", 6),
                                     new XElement("Spot2", 6),
